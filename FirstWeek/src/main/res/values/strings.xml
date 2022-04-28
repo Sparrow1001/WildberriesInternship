@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">WildberriesInternship</string>
+    <string name="Service_button">Service Action</string>
+    <string name="BroadcastReceiver_button">BroadcastReceiver Action</string>
+    <string name="ContentProvider_button">ContentProvider Action</string>
+</resources>
