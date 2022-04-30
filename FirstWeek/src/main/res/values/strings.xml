@@ -3,4 +3,6 @@
     <string name="Service_button">Service Action</string>
     <string name="BroadcastReceiver_button">BroadcastReceiver Action</string>
     <string name="ContentProvider_button">ContentProvider Action</string>
+    <string name="StartMc_button">Start Music</string>
+    <string name="StopMc_button">Stop Music</string>
 </resources>

@@ -1,7 +1,11 @@
 package com.example.wildberriesinternship
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
+import com.example.wildberriesinternship.databinding.ActivityServiceExampleBinding
 
 class ServiceExampleActivity : AppCompatActivity() {
 
@@ -15,13 +19,25 @@ class ServiceExampleActivity : AppCompatActivity() {
     сервис использует основной поток по умолчанию, что может вызвать остановку приложения при реализации
     тяжёлой задачи.
 
-    Ярким примером использования сервисов являются приложения для прослушивания музыки (Яндекс.Музыка,
+    Яркими примерами использования сервисов являются приложения для прослушивания музыки (Яндекс.Музыка,
     Spotify и т.д). Работающий в фоновом режиме сервис позволяет нам продолжать слушать музыку при
     сворачивании приожения или блокировке экрана.
      */
 
+    lateinit var binding: ActivityServiceExampleBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_service_example)
+        binding = ActivityServiceExampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.startMcBt.setOnClickListener {
+            startService(Intent(this, MyService::class.java))
+        }
+
+        binding.stopMcBt.setOnClickListener {
+            stopService(Intent(this, MyService::class.java))
+        }
+
     }
 }
