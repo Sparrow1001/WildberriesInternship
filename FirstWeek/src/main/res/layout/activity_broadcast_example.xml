@@ -12,7 +12,7 @@
         android:id="@+id/sendMsBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send Message"
+        android:text="Share link"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
