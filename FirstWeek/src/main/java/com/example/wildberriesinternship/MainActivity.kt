@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
 
     Обработка нажатия на кнопку проходит с помощью метода setOnClickListener, в котором мы запускаем
     новую активность испольуя Intent.
+
+
+    Кроме того, в этой активности находится "мост для переброски". Для задания с BroadcastReceiver я
+    сделал возможность отправить ссылку на активность в приложении. Так как MainActivity открывается первой
+    при запуске приложения, я, при получении нужного намеренья, перекидываю пользователя на нужную активность.
      */
 
     lateinit var binding: ActivityMainBinding
@@ -41,6 +46,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.serviceBt.setOnClickListener{
             startActivity(Intent(applicationContext, ServiceExampleActivity::class.java))
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val income = intent.data
+        if (income != null){
+            val intent1 = Intent(this, BroadcastExampleActivity::class.java)
+            intent.data = null
+            startActivity(intent1)
         }
     }
 }
