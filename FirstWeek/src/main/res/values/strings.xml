@@ -5,4 +5,8 @@
     <string name="ContentProvider_button">ContentProvider Action</string>
     <string name="StartMc_button">Start Music</string>
     <string name="StopMc_button">Stop Music</string>
+    <string name="Description">Description</string>
+    <string name="Start_time">Start time</string>
+    <string name="Duration">Duration</string>
+    <string name="Ok_Button">Add to calendar</string>
 </resources>
