@@ -1,4 +1,4 @@
-package com.example.secondweek
+package com.example.secondweekfragment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
