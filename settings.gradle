@@ -16,3 +16,4 @@ rootProject.name = "WildberriesInternship"
 include ':FirstWeek'
 include ':SecondWeekActivity'
 include ':SecondWeekFragment'
+include ':AdditionalTask'
