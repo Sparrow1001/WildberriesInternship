@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sorts">
+        <item>Bogo Sort</item>
+        <item>Shell Sort</item>
+        <item>Quick Sort</item>
+        <item>Gnome Sort</item>
+        <item>Patience Sort</item>
+        <item>Standard Sort</item>
+    </string-array>
+</resources>

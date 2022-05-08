@@ -3,7 +3,7 @@ package com.example.additionaltask
 class BogoSort() {
 
     companion object {
-        const val RAND_MAX = 32768 // big enough for this
+        const val RAND_MAX = 32768
     }
 
     val rand = java.util.Random()
