@@ -6,6 +6,8 @@
         <item>Quick Sort</item>
         <item>Gnome Sort</item>
         <item>Patience Sort</item>
+        <item>Merge Sort</item>
+        <item>Selection Sort</item>
         <item>Standard Sort</item>
     </string-array>
 </resources>

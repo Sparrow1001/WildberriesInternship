@@ -2,19 +2,39 @@ package com.example.additionaltask
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import com.example.additionaltask.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import java.util.*
-import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    //Не ставить в BogoSort больше, чем 13 элементов, а лучше вообще его не трогать)!!
 
+    //Стандартная функция сортировки почти всегда работает быстрее остальных, поэтому нет
+    //особого смысла в реализации отдельной сортировки.
+
+    //Инструкция:
+    //Для использования сортировки, нужно ввести количество символов, которые будут сортироваться.
+    //После этого в выпадающем меню нужно выбрать сортировку.
+    //Как только это сделано, нажимаем на кнопку Start и ждём
+    //Когда исчезнет значёк загрузки, появится время, за которое отработала сортировка.
+
+
+    /*
+    На небольших значениях все алгоритмы отрабатывают очень быстро, но стандартная всё равно быстрее
+
+    На 100 тыс. значений стандартная отрабатывает в среднем за 0.003 с. Примерно за то же время
+    отрабатывает Merge Sort. Шелла и быстрая сортировка работают в среднем за 0.008 c. Остальные от
+    6 до 15 секунд.
+
+    1 млн. значиений: Шелла в среднем за 0.11, быстрая за 0.09, Merge Sort 0.098. Стандартная здесь
+    снова быстрее всех и работает в срезнем за 0.033
+     */
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,11 +93,23 @@ class MainActivity : AppCompatActivity() {
             array.sort()
             end = Calendar.getInstance().timeInMillis.toDouble()
             res = ((end - start)/1000.0)
+        } else if (binding.spinner.selectedItem == "Merge Sort"){
+            start = Calendar.getInstance().timeInMillis.toDouble()
+            mergeSort(array)
+            end = Calendar.getInstance().timeInMillis.toDouble()
+            res = ((end - start)/1000.0)
+        } else if (binding.spinner.selectedItem == "Selection Sort"){
+            start = Calendar.getInstance().timeInMillis.toDouble()
+            selectionSort(array)
+            end = Calendar.getInstance().timeInMillis.toDouble()
+            res = ((end - start)/1000.0)
         }
 
     return res
 
     }
+
+    ///////////////////
 
     fun quickSort(array: IntArray, left: Int, right: Int) {
         val index = partition (array, left, right)
@@ -111,6 +143,8 @@ class MainActivity : AppCompatActivity() {
         a[c] = temp
     }
 
+///////////////////
+
     fun  gnomeSort(arr: IntArray, ascending: Boolean = true) {
         var i = 1
         var j = 2
@@ -125,6 +159,8 @@ class MainActivity : AppCompatActivity() {
                 if (i == 0) i = j++
             }
     }
+
+    ///////////////////
 
     fun shellSort(arr: IntArray): Int {
         val n = arr.size
@@ -148,6 +184,8 @@ class MainActivity : AppCompatActivity() {
         }
         return 0
     }
+
+    ///////////////////
 
     fun patienceSort(arr: IntArray) {
         if (arr.size < 2) return
@@ -177,6 +215,67 @@ class MainActivity : AppCompatActivity() {
             if (minPile.size == 0) piles.removeAt(minPileIndex)
         }
     }
+
+    ///////////////////
+
+    fun mergeSort(array : IntArray, helper:IntArray = IntArray(array.size), low:Int = 0, high : Int = array.size-1) {
+        if(low < high) {
+            val middle:Int = (low+high)/2
+            mergeSort(array, helper, low, middle)
+            mergeSort(array, helper, middle+1, high)
+            merge(array, helper, low, middle, high)
+        }
+    }
+
+    fun merge (array: IntArray, helper: IntArray, low: Int, middle:Int, high: Int){
+
+        for(i in low..high) helper[i] = array[i]
+
+        var helperLeft = low
+        var helperRight = middle + 1
+        var current = low
+
+
+
+        while (helperLeft <= middle && helperRight <= high) {
+            if(helper[helperLeft] <= helper[helperRight]) {
+                array[current] = helper[helperLeft]
+                helperLeft++
+            } else {
+                array[current] = helper[helperRight]
+                helperRight++
+            }
+            current++
+        }
+
+
+        val remaining = middle - helperLeft
+        for (i in 0..remaining) {
+            array[current + i] = helper[helperLeft + i]
+        }
+
+    }
+
+    ///////////////////
+
+    fun selectionSort(arr:IntArray){
+        var n= arr.size
+        var temp:Int
+        for(i in 0..n-1){
+            var indexOfMin = i
+            for(j in n-1 downTo  i){
+                if(arr[j]< arr[indexOfMin])
+                    indexOfMin=j
+            }
+            if(i!=indexOfMin){
+                temp = arr[i]
+                arr[i]= arr[indexOfMin]
+                arr[indexOfMin]=temp
+            }
+        }
+    }
+
+    ///////////////////
 
     fun printArray(arr: IntArray) {
         val lastIndex: Int = arr.size - 1
