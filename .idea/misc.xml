@@ -18,6 +18,8 @@
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_airplay.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_arrow_down.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.2705" />
+        <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_baseline_cancel_presentation_24.xml" value="0.2705" />
+        <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_baseline_pause_circle_24.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_baseline_timer_24.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_broadcast.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/ic_favorite.xml" value="0.2705" />
@@ -36,8 +38,10 @@
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/seekbar_progress.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/seekbar_progress_bg.xml" value="0.2705" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/drawable/volume_control.xml" value="0.2705" />
+        <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout-v28/fragment_calculator_constraint.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout/activity_main.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout/fragment_authorization.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout/fragment_calculator.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout/fragment_calculator_constraint.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout/fragment_home.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/ThirdWeek/src/main/res/layout/fragment_music_constraint.xml" value="0.38697916666666665" />
