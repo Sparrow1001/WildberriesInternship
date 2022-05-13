@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyEditTextTheme">
+        <item name="colorControlNormal">#B0BCB8</item>
+        <item name="colorControlActivated">#1978f5</item>
+    </style>
+</resources>
