@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="musicImageButtonWidth">30dp</dimen>
+    <dimen name="musicImageButtonHeight">30dp</dimen>
+
+</resources>

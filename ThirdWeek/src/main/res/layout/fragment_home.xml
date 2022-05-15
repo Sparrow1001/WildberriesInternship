@@ -1,102 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical"
     tools:context=".HomeFragment">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="With Constraint"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/authConstBt"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Authorization" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/calcConstBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Calculator" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/musicConstBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Music" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="With Constraint"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/profileConstBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Profile" />
+            <Button
+                android:id="@+id/authConstBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Authorization" />
 
+            <Button
+                android:id="@+id/calcConstBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Calculator" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Without Constraint"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+            <Button
+                android:id="@+id/musicConstBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Music" />
 
-    <Button
-        android:id="@+id/authBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Authorization" />
-
-    <Button
-        android:id="@+id/calcBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Calculator" />
-
-    <Button
-        android:id="@+id/musicBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Music" />
-
-    <Button
-        android:id="@+id/profileBt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:text="Profile" />
+            <Button
+                android:id="@+id/profileConstBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Profile" />
 
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Without Constraint"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/authBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Authorization" />
+
+            <Button
+                android:id="@+id/calcBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Calculator" />
+
+            <Button
+                android:id="@+id/musicBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Music" />
+
+            <Button
+                android:id="@+id/profileBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Profile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Compose"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/authComposeBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Authorization" />
+
+            <Button
+                android:id="@+id/calcComposeBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Calculator" />
+
+            <Button
+                android:id="@+id/musicComposeBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Music" />
+
+            <Button
+                android:id="@+id/profileComposeBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="Profile" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</FrameLayout>
