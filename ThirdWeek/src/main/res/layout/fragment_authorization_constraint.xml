@@ -11,16 +11,16 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="44dp"
         android:elevation="12dp"
         android:innerRadius="0dp"
         android:shape="ring"
         android:thicknessRatio="1.9"
         app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -37,49 +37,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="52dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="12dp"
         android:hint="Телефон или электронный адресс почты"
         android:singleLine="true"
         android:theme="@style/MyEditTextTheme"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <EditText
         android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="13dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="12dp"
         android:hint="Пароль"
         android:theme="@style/MyEditTextTheme"
-        app:layout_constraintBottom_toTopOf="@+id/button20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <Button
         android:id="@+id/button20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="12dp"
         android:backgroundTint="#1978f5"
         android:text="Войти"
         android:textAllCaps="false"
         android:textColor="@color/grey"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView22"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
         android:layout_marginBottom="512dp"
         android:text="Забыли пароль?"
         android:textAlignment="center"
@@ -89,6 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
