@@ -4,109 +4,290 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".constraint.ProfileConstraintFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/topCardView"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/blue"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
-            android:elevation="12dp"
-            android:innerRadius="0dp"
-            android:shape="ring"
-            android:thicknessRatio="1.9"
-            app:cardCornerRadius="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/cat" />
-
-        </androidx.cardview.widget.CardView>
-
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@null"
-            android:src="@drawable/ic_west"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="25dp"
-            android:background="@null"
-            android:src="@drawable/ic_qr_code"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton11"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_contentStartGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_begin="16dp"
+                android:orientation="vertical"/>
 
-        <ImageButton
-            android:id="@+id/imageButton11"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="25dp"
-            android:background="@null"
-            android:src="@drawable/ic_search_24"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton10"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_contentEndGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_end="16dp"
+                android:orientation="vertical"/>
 
-        <ImageButton
-            android:id="@+id/imageButton10"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@null"
-            android:src="@drawable/ic_more_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_contentTopGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_begin="16dp"
+                android:orientation="horizontal"/>
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
-            android:layout_marginBottom="52dp"
-            android:text="Иван Котофеевич"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cardView" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageCardView"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
+                android:shape="ring"
+                android:thicknessRatio="1.9"
+                app:cardCornerRadius="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/top_contentStartGl">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="4dp"
-            android:text="Online"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                <ImageView
+                    android:id="@+id/imageView_profile_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/cat" />
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/button_exit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:src="@drawable/ic_west"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/button_qr"
+                app:layout_constraintStart_toStartOf="@id/top_contentStartGl"
+                app:layout_constraintTop_toTopOf="@id/top_contentTopGl" />
+
+            <ImageButton
+                android:id="@+id/button_qr"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="25dp"
+                android:background="@null"
+                android:src="@drawable/ic_qr_code"
+                app:layout_constraintEnd_toStartOf="@+id/button_find"
+                app:layout_constraintTop_toTopOf="@id/top_contentTopGl" />
+
+            <ImageButton
+                android:id="@+id/button_find"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="25dp"
+                android:background="@null"
+                android:src="@drawable/ic_search_24"
+                app:layout_constraintEnd_toStartOf="@+id/button_more"
+                app:layout_constraintTop_toTopOf="@id/top_contentTopGl" />
+
+            <ImageButton
+                android:id="@+id/button_more"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:src="@drawable/ic_more_white"
+                app:layout_constraintEnd_toEndOf="@id/top_contentEndGl"
+                app:layout_constraintTop_toTopOf="@id/top_contentTopGl" />
+
+            <TextView
+                android:id="@+id/textView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
+                android:layout_marginBottom="52dp"
+                android:text="Иван Котофеевич"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageCardView" />
+
+            <TextView
+                android:id="@+id/textView_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Online"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/textView_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView_name"
+                app:layout_constraintTop_toBottomOf="@+id/textView_name" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/accountCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/accountConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/account_contentStartGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_begin="16dp"
+                android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/account_contentEndGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_end="16dp"
+                android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/account_contentTopGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_begin="16dp"
+                android:orientation="horizontal"/>
+
+            <TextView
+                android:id="@+id/accountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toTopOf="@id/account_contentTopGl" />
+
+            <TextView
+                android:id="@+id/phoneTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="+7 (800) 555-35-35"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/accountTv" />
+
+            <TextView
+                android:id="@+id/changePhoneTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to change phone number"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/phoneTv" />
+
+            <View
+                android:id="@+id/firstLineView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/margin"
+                android:background="@color/dark_grey"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/changePhoneTv" />
+
+            <TextView
+                android:id="@+id/telegramIdTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="\@TheBestCatOfTheWorld"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/firstLineView" />
+
+            <TextView
+                android:id="@+id/usernameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/telegramIdTv" />
+
+            <View
+                android:id="@+id/secondLineView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/margin"
+                android:background="@color/dark_grey"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/usernameTv" />
+
+            <TextView
+                android:id="@+id/statusTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:singleLine="true"
+                android:text="Неглаженный кот - тяжелейшее преступление человека"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/secondLineView" />
+
+            <TextView
+                android:id="@+id/bioTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bio"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
+                app:layout_constraintTop_toBottomOf="@id/statusTv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"
@@ -134,231 +315,182 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/settingsCardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Account"
-        android:textColor="@color/blue"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:text="+7 (800) 555-35-35"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Tap to change phone number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:text="\@TheBestCatOfTheWorld"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Username"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:singleLine="true"
-        android:text="Неглаженный кот - тяжелейшее преступлени..."
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Bio"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Settings"
-        android:textColor="@color/blue"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <ImageView
-        android:id="@+id/imageButton12"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:src="@drawable/ic_notifications"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="Notifications and sounds"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton12"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/accountCardView"
+        app:layout_constraintVertical_bias="0">
 
-    <ImageView
-        android:id="@+id/imageButton13"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:src="@drawable/ic_baseline_lock_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton12" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:text="Privacy and Security"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton13"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_contentStartGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
-    <ImageView
-        android:id="@+id/imageButton14"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:src="@drawable/ic_baseline_pie_chart_outline_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton13" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_contentEndGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="18dp"
-        android:text="Data and Storage"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton14"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_contentTopGl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
 
-    <ImageView
-        android:id="@+id/imageButton15"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:src="@drawable/ic_baseline_chat_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton14" />
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/sectionSettings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="notificationsBt, privacyBt, dataBt, chatFoldersBt, chatSettingsBt, devicesBt" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="19dp"
-        android:text="Chat Settings"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton15"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            <TextView
+                android:id="@+id/settingsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/settings_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/settings_contentStartGl"
+                app:layout_constraintTop_toTopOf="@id/settings_contentTopGl" />
 
-    <ImageView
-        android:id="@+id/imageButton16"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:src="@drawable/ic_baseline_folder_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton15" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notificationsBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
+                android:text="Notifications and sounds"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_notifications"
+                app:iconTint="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/privacyBt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settingsTv" />
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="18dp"
-        android:text="Chat Folders"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton16"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/privacyBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
+                android:text="Privacy and Security"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_lock_24"
+                app:iconTint="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/thirdView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationsBt" />
 
-    <ImageView
-        android:id="@+id/imageButton17"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:src="@drawable/ic_baseline_devices_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton16" />
+            <View
+                android:id="@+id/thirdView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/dataBt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyBt" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:text="Devices"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton17"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dataBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
+                android:text="Data and Storage"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_pie_chart_outline_24"
+                app:iconTint="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/chatSettingsBt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/thirdView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chatSettingsBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
+                android:text="Chat Settings"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_chat_24"
+                app:iconTint="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/fourthView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataBt" />
+
+            <View
+                android:id="@+id/fourthView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/chatFoldersBt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chatSettingsBt" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chatFoldersBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
+                android:text="Chat Folders"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_folder_24"
+                app:iconTint="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/devicesBt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fourthView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/devicesBt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
+                android:text="Devices"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_devices_24"
+                app:iconTint="@color/dark_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chatFoldersBt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
