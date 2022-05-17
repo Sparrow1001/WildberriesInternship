@@ -9,7 +9,6 @@
     tools:context=".withoutConstraint.ProfileFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentTop="true"
@@ -94,7 +93,6 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
@@ -166,7 +164,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/phoneTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -176,7 +174,6 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -190,7 +187,7 @@
                 android:background="@color/dark_grey" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/loginTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -200,7 +197,6 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -214,7 +210,7 @@
                 android:background="@color/dark_grey" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/bioTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -226,7 +222,6 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -249,7 +244,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -260,24 +254,26 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/notificationsBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:gravity="center|left"
+                android:outlineSpotShadowColor="@color/white"
                 android:text="Notifications and sounds"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:outlineSpotShadowColor="@color/white"
                 app:icon="@drawable/ic_notifications"
                 app:iconTint="@color/dark_grey" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/privacyBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:gravity="center|left"
-                android:text="Privacy and Security"
                 android:outlineSpotShadowColor="@color/white"
+                android:text="Privacy and Security"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:icon="@drawable/ic_baseline_lock_24"
@@ -291,24 +287,26 @@
                 android:background="@color/dark_grey" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/dataBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:gravity="center|left"
-                android:text="Data and Storage"
                 android:outlineSpotShadowColor="@color/white"
+                android:text="Data and Storage"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:icon="@drawable/ic_baseline_pie_chart_outline_24"
                 app:iconTint="@color/dark_grey" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/chatSettingsBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:gravity="center|left"
-                android:text="Chat Settings"
                 android:outlineSpotShadowColor="@color/white"
+                android:text="Chat Settings"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:icon="@drawable/ic_baseline_chat_24"
@@ -322,24 +320,26 @@
                 android:background="@color/dark_grey" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/chatFoldersBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:gravity="center|left"
-                android:text="Chat Folders"
                 android:outlineSpotShadowColor="@color/white"
+                android:text="Chat Folders"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:icon="@drawable/ic_baseline_folder_24"
                 app:iconTint="@color/dark_grey" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/devicesBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:gravity="center|left"
-                android:text="Devices"
                 android:outlineSpotShadowColor="@color/white"
+                android:text="Devices"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:icon="@drawable/ic_baseline_devices_24"

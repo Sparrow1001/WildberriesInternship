@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +8,7 @@
     tools:context=".constraint.MusicConstraintFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nowPlayTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -20,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/playlistNameTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -29,7 +28,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/nowPlayTv" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -39,7 +38,7 @@
         android:src="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/playlistNameTv" />
 
 
     <ImageView
@@ -52,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/playlistBt" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -64,10 +63,10 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
+        app:layout_constraintTop_toBottomOf="@+id/exitBt" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/playlistBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
@@ -78,17 +77,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/airplayBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@null"
         android:src="@drawable/ic_airplay"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/playlistBt"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/exitBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/songNameTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -113,20 +113,21 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/singerNameTv"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Nirvana"
         android:textAlignment="textStart"
         android:textColor="@color/grey"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="@+id/songNameTv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/songNameTv"
+        app:layout_constraintTop_toBottomOf="@+id/songNameTv" />
 
     <ImageButton
+        android:id="@+id/shareBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="40dp"
@@ -134,11 +135,11 @@
         android:background="@null"
         android:rotation="180"
         android:src="@drawable/ic_reply"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/moreBt"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/moreBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="40dp"
@@ -157,10 +158,10 @@
         android:thumbTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/singerNameTv" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/startCounterTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
@@ -170,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/endCounterTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="68dp"
@@ -180,7 +181,7 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/playBt"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="50dp"
@@ -191,25 +192,25 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/prevSongBt"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="20dp"
         android:background="@null"
         android:src="@drawable/ic_previous"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/playBt"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/nextSongBt"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="72dp"
         android:background="@null"
         android:src="@drawable/ic_next"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/playBt"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
@@ -219,7 +220,7 @@
         android:layout_marginTop="75dp"
         android:background="@null"
         android:src="@drawable/ic_favorite"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toEndOf="@+id/nextSongBt"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
@@ -229,11 +230,11 @@
         android:layout_marginEnd="20dp"
         android:background="@null"
         android:src="@drawable/ic_unfavorite"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintEnd_toStartOf="@+id/prevSongBt"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/repeatBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="56dp"
@@ -244,7 +245,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/hqBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="55dp"
@@ -252,7 +253,7 @@
         android:background="@null"
         android:src="@drawable/ic_high_quality"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6" />
+        app:layout_constraintStart_toEndOf="@+id/repeatBt" />
 
     <ImageButton
         android:layout_width="30dp"
@@ -262,10 +263,10 @@
         android:background="@null"
         android:src="@drawable/ic_baseline_timer_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton7" />
+        app:layout_constraintEnd_toStartOf="@+id/shuffleBt" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/shuffleBt"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="56dp"
