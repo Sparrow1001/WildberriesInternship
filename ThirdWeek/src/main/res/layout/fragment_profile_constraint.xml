@@ -28,22 +28,22 @@
                 android:id="@+id/top_contentStartGl"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintGuide_begin="16dp"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/top_contentEndGl"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintGuide_end="16dp"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/top_contentTopGl"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintGuide_begin="16dp"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/imageCardView"
@@ -75,8 +75,8 @@
                 android:layout_height="30dp"
                 android:background="@null"
                 android:src="@drawable/ic_west"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/button_qr"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/top_contentStartGl"
                 app:layout_constraintTop_toTopOf="@id/top_contentTopGl" />
 
@@ -158,22 +158,22 @@
                 android:id="@+id/account_contentStartGl"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintGuide_begin="16dp"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/account_contentEndGl"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintGuide_end="16dp"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/account_contentTopGl"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintGuide_begin="16dp"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
 
             <TextView
                 android:id="@+id/accountTv"
@@ -194,8 +194,8 @@
                 android:text="+7 (800) 555-35-35"
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/accountTv" />
 
@@ -204,8 +204,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tap to change phone number"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/phoneTv" />
 
@@ -213,11 +213,11 @@
                 android:id="@+id/firstLineView"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="8dp"
                 android:background="@color/dark_grey"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/changePhoneTv" />
 
@@ -229,8 +229,8 @@
                 android:text="\@TheBestCatOfTheWorld"
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/firstLineView" />
 
@@ -239,8 +239,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/telegramIdTv" />
 
@@ -248,11 +248,11 @@
                 android:id="@+id/secondLineView"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="8dp"
                 android:background="@color/dark_grey"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/usernameTv" />
 
@@ -260,15 +260,15 @@
                 android:id="@+id/statusTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="@dimen/margin"
                 android:singleLine="true"
                 android:text="Неглаженный кот - тяжелейшее преступление человека"
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/secondLineView" />
 
@@ -277,8 +277,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bio"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/account_contentEndGl"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/account_contentStartGl"
                 app:layout_constraintTop_toBottomOf="@id/statusTv" />
 
@@ -286,7 +286,6 @@
 
 
     </androidx.cardview.widget.CardView>
-
 
 
     <androidx.cardview.widget.CardView
