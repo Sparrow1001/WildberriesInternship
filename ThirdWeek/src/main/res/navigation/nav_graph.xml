@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_homeFragment_to_authorizationComposeActivity"
             app:destination="@id/authorizationComposeActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_musicComposeActivity"
+            app:destination="@id/musicComposeActivity" />
     </fragment>
     <fragment
         android:id="@+id/authorizationFragment"
@@ -84,4 +87,8 @@
         android:id="@+id/authorizationComposeActivity"
         android:name="com.example.thirdweek.compose.AuthorizationComposeActivity"
         android:label="AuthorizationComposeActivity" />
+    <activity
+        android:id="@+id/musicComposeActivity"
+        android:name="com.example.thirdweek.compose.MusicComposeActivity"
+        android:label="MusicComposeActivity" />
 </navigation>

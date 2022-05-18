@@ -64,6 +64,10 @@ class HomeFragment : Fragment() {
         binding.authComposeBt.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_authorizationComposeActivity)
         }
+
+        binding.musicComposeBt.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_musicComposeActivity)
+        }
     }
 
 }
