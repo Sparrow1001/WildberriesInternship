@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WildberriesInternship">
         <activity
+            android:name=".compose.MusicComposeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_music_compose"
+            android:theme="@style/Theme.WildberriesInternship" />
+        <activity
+            android:name=".compose.AuthorizationComposeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_authorization_compose"
+            android:theme="@style/Theme.WildberriesInternship" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

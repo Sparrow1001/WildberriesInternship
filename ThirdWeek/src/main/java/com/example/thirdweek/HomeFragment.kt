@@ -60,6 +60,10 @@ class HomeFragment : Fragment() {
         binding.profileBt.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_profileFragment)
         }
+
+        binding.authComposeBt.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_authorizationComposeActivity)
+        }
     }
 
 }
