@@ -31,16 +31,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.recyclerViewChatList.apply {
             layoutManager = LinearLayoutManager(context)
-            homeAdapter = HomeAdapter(object : ChatActionListener{
-                override fun onChatUpdate() {
-
-                }
-
-                override fun onChatDetails(chat: ChatData) {
-
-                }
-
-            })
+            homeAdapter = HomeAdapter()
             adapter = homeAdapter
         }
 
@@ -56,6 +47,10 @@ class HomeFragment : Fragment() {
             binding.swipeToRefreshLayout.isRefreshing = false
 
 
+        }
+
+        homeAdapter.setOnItemClickListener {
+            chatService.deleteChat(it)
         }
 
         chatService.addListener(chatsListener)

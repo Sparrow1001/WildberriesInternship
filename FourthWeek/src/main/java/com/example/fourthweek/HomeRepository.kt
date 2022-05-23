@@ -6,9 +6,9 @@ import kotlin.collections.ArrayList
 
 class HomeRepository {
 
-    fun getChats(list: List<ChatData>): List<ChatData> {
+    fun getChats(list: List<ChatData>): MutableList<ChatData> {
         var newList = mutableListOf<ChatData>()
-        newList += list
+        newList.addAll(list)
         if (newList.isNotEmpty()) {
 
             for (i in 0..newList.size - 1){
@@ -31,22 +31,17 @@ class HomeRepository {
         }
     }
 
-    private fun fillList(list: List<ChatData>): List<ChatData>{
-        val randomQuantityRange = 0..Random().nextInt(5)
-        var newList = mutableListOf<ChatData>()
-        newList += list
-        for (i in randomQuantityRange) {
-            val chatData = ChatData(
-                id = Random().nextInt(999),
-                chatName = getRandomString(Random().nextInt(20)),
-                dateTime = "${Random().nextInt(2)}${Random().nextInt(3)}:" +
-                        "${Random().nextInt(6)}${Random().nextInt(9)}",
-                lastMessage = getRandomString(Random().nextInt(20)),
-                unreadCounter = Random().nextInt(100)
-            )
-            newList = ArrayList(newList)
-            newList.add(chatData)
-        }
+    private fun fillList(newList: MutableList<ChatData>): MutableList<ChatData>{
+
+        newList.addAll((1..2).map { ChatData(
+            id = Random().nextInt(999),
+            chatName = getRandomString(Random().nextInt(20)),
+            dateTime = "${Random().nextInt(2)}${Random().nextInt(3)}:" +
+                    "${Random().nextInt(6)}${Random().nextInt(9)}",
+            lastMessage = getRandomString(Random().nextInt(20)),
+            unreadCounter = Random().nextInt(100)
+        ) }.toMutableList())
+
         return newList
     }
 

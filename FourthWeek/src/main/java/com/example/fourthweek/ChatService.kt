@@ -12,13 +12,12 @@ class ChatService {
     private val listeners = mutableSetOf<ChatsListener>()
 
     init {
-        chats = homeRepository.getChats(chats) as MutableList<ChatData>
-        notifyChanges()
+        chats = homeRepository.getChats(chats)
     }
 
     fun getChats(){
         chats = ArrayList(chats)
-        chats = homeRepository.getChats(chats).toMutableList()
+        chats = homeRepository.getChats(chats)
         notifyChanges()
     }
 

@@ -1,25 +1,15 @@
 package com.example.fourthweek.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.fourthweek.R
 import com.example.fourthweek.databinding.ChatItemBinding
 import com.example.fourthweek.models.ChatData
 
-interface ChatActionListener {
-    fun onChatUpdate()
-
-    fun onChatDetails(chat: ChatData)
-}
-
 class HomeAdapter(
-    private val actionListener: ChatActionListener
-) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(), View.OnClickListener {
+
+) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
 
     var chats: List<ChatData> = emptyList()
         set(newValue) {
@@ -29,18 +19,13 @@ class HomeAdapter(
             diffResult.dispatchUpdatesTo(this)
         }
 
-    override fun onClick(v: View) {
-        val chat = v.tag as ChatData
-        actionListener.onChatDetails(chat)
-    }
 
-    //val differ = AsyncListDiffer(this, differCallback)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ChatItemBinding.inflate(inflater, parent, false)
 
-        binding.root.setOnClickListener(this)
         return HomeViewHolder(binding)
 
 
@@ -56,6 +41,16 @@ class HomeAdapter(
             unreadCounterTv.text = chat.unreadCounter.toString()
         }
 
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(chat) }
+        }
+
+    }
+
+    private var onItemClickListener: ((ChatData) -> Unit)? = null
+
+    fun setOnItemClickListener(listener:(ChatData) -> Unit){
+        onItemClickListener = listener
     }
 
     override fun getItemCount(): Int {
@@ -66,10 +61,7 @@ class HomeAdapter(
         val binding: ChatItemBinding
     ) : RecyclerView.ViewHolder(binding.root)
 
-//    override fun onRefresh() {
-//        actionListener.onChatUpdate()
-//
-//    }
+
 
 
 }
