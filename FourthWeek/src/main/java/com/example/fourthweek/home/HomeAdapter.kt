@@ -6,85 +6,71 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.fourthweek.R
+import com.example.fourthweek.databinding.ChatItemBinding
 import com.example.fourthweek.models.ChatData
 
-class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+interface ChatActionListener {
+    fun onChatUpdate()
 
-    var oldList: ArrayList<ChatData> = ArrayList<ChatData>()
+    fun onChatDetails(chat: ChatData)
+}
 
+class HomeAdapter(
+    private val actionListener: ChatActionListener
+) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(), View.OnClickListener {
 
-
-    inner class HomeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
-        val chatNameTv: TextView = itemView.findViewById(R.id.chatNameTv)
-        val lastMessageTv: TextView = itemView.findViewById(R.id.lastMessageTv)
-        val dateTimeTv: TextView = itemView.findViewById(R.id.dateTimeTv)
-        val unreadCounterTv: TextView = itemView.findViewById(R.id.unreadCounterTv)
-
-        fun bind(chat: ChatData?) {
-            chat?.let {
-                chatNameTv.text = it.chatName
-                lastMessageTv.text = it.lastMessage
-                dateTimeTv.text = it.dateTime
-                unreadCounterTv.text = it.unreadCounter.toString()
-            }
+    var chats: List<ChatData> = emptyList()
+        set(newValue) {
+            val diffCallback = HomeCallback(field, newValue)
+            val diffResult = DiffUtil.calculateDiff(diffCallback)
+            field = newValue
+            diffResult.dispatchUpdatesTo(this)
         }
-    }
 
-//    private val differCallback = object : DiffUtil.ItemCallback<ChatData>(){
-//        override fun areItemsTheSame(
-//            oldItem: ChatData,
-//            newItem: ChatData
-//        ): Boolean {
-//            return oldItem.lastMessage == newItem.lastMessage &&
-//                    oldItem.unreadCounter == newItem.unreadCounter
-//        }
-//
-//        override fun areContentsTheSame(
-//            oldItem: ChatData,
-//            newItem: ChatData
-//        ): Boolean {
-//            return oldItem == newItem
-//        }
-//
-//    }
-
-    fun setData(newList: List<ChatData>){
-        val diffCallback = HomeCallback(oldList, newList)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
-        oldList.clear()
-        oldList.addAll(newList)
-        diffResult.dispatchUpdatesTo(this)
-
-    }
-
-    fun getData(): List<ChatData> {
-        return ArrayList(this.oldList)
+    override fun onClick(v: View) {
+        val chat = v.tag as ChatData
+        actionListener.onChatDetails(chat)
     }
 
     //val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        return HomeViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.chat_item,
-                parent,
-                false
-            )
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ChatItemBinding.inflate(inflater, parent, false)
+
+        binding.root.setOnClickListener(this)
+        return HomeViewHolder(binding)
+
 
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        val chat = oldList[position]
-        holder.bind(chat)
+        val chat = chats[position]
+        holder.itemView.tag = chat
+        with(holder.binding) {
+            chatNameTv.text = chat.chatName
+            lastMessageTv.text = chat.lastMessage
+            dateTimeTv.text = chat.dateTime
+            unreadCounterTv.text = chat.unreadCounter.toString()
+        }
+
     }
 
     override fun getItemCount(): Int {
-        return oldList.size
+        return chats.size
     }
 
+    class HomeViewHolder(
+        val binding: ChatItemBinding
+    ) : RecyclerView.ViewHolder(binding.root)
+
+//    override fun onRefresh() {
+//        actionListener.onChatUpdate()
+//
+//    }
 
 
 }
+
