@@ -13,7 +13,7 @@ class HomeCallback(private val oldList: List<ChatData>, private val newList: Lis
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition] == newList[newItemPosition]
+        return false
     }
 
 }

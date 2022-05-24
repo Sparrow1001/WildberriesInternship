@@ -15,10 +15,11 @@ class ChatService {
         chats = homeRepository.getChats(chats)
     }
 
-    fun getChats(){
-        chats = ArrayList(chats)
-        chats = homeRepository.getChats(chats)
-        notifyChanges()
+    fun getChats(oldChats: List<ChatData>): List<ChatData> {
+//        chats = ArrayList(chats)
+        val _chats = homeRepository.getChats(oldChats)
+        return _chats
+//        notifyChanges()
     }
 
     fun deleteChat(chat: ChatData){

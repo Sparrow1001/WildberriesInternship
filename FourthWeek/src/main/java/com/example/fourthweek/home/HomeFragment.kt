@@ -1,15 +1,16 @@
 package com.example.fourthweek.home
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fourthweek.App
-import com.example.fourthweek.ChatService
-import com.example.fourthweek.ChatsListener
-import com.example.fourthweek.HomeRepository
+import androidx.recyclerview.widget.RecyclerView
+import com.example.fourthweek.*
 import com.example.fourthweek.databinding.FragmentHomeBinding
 import com.example.fourthweek.models.ChatData
 
@@ -18,7 +19,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeAdapter: HomeAdapter
     private lateinit var binding: FragmentHomeBinding
-    private val homeRepository = HomeRepository()
+    private lateinit var homeRepository: HomeRepository
 
     private val chatService: ChatService
         get() = (activity?.applicationContext as App).chatService
@@ -29,43 +30,36 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.listNavHostFragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        val lrLayoutManager = LinearLayoutManager(context)
+        homeRepository = HomeRepository()
         binding.recyclerViewChatList.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = lrLayoutManager
             homeAdapter = HomeAdapter()
             adapter = homeAdapter
         }
+        homeAdapter.chats = chatService.getChats(homeAdapter.chats)
 
-        //homeAdapter.setData(homeRepository.getChats(homeAdapter.getData()))
 
         binding.swipeToRefreshLayout.setOnRefreshListener {
 
-            //homeAdapter.setData(homeRepository.getChats(homeAdapter.getData()))
-
-            chatService.getChats()
-            chatService.addListener(chatsListener)
+            homeAdapter.chats = homeRepository.updateChats(homeAdapter.chats)
 
             binding.swipeToRefreshLayout.isRefreshing = false
-
 
         }
 
         homeAdapter.setOnItemClickListener {
-            chatService.deleteChat(it)
+            navController.navigate(R.id.action_homeFragment_to_chatFragment)
         }
-
-        chatService.addListener(chatsListener)
 
         return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        chatService.removeListener(chatsListener)
-    }
 
-    private val chatsListener: ChatsListener = {
-        homeAdapter.chats = it
-    }
+
+
 
 
 }
