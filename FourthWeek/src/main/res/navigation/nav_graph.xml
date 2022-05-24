@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_homeFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_homeWithoutRecycleFragment"
+            app:destination="@id/homeWithoutRecycleFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.fourthweek.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/homeWithoutRecycleFragment"
+        android:name="com.example.fourthweek.norecyclerview.HomeWithoutRecycleFragment"
+        android:label="fragment_home_without_recycle"
+        tools:layout="@layout/fragment_home_without_recycle" />
 </navigation>

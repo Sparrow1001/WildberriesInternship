@@ -56,10 +56,10 @@ class HomeRepository {
         newList.addAll((0..10).map {
             ChatData(
                 id = Random().nextInt(999),
-                chatName = getRandomString(Random().nextInt(20)),
+                chatName = getRandomString((1..20).random()),
                 dateTime = "${Random().nextInt(2)}${Random().nextInt(3)}:" +
                         "${Random().nextInt(6)}${Random().nextInt(9)}",
-                lastMessage = getRandomString(Random().nextInt(20)),
+                lastMessage = getRandomString((1..40).random()),
                 unreadCounter = Random().nextInt(100)
             )
         }.toMutableList())

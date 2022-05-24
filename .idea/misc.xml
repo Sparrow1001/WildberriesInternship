@@ -11,8 +11,10 @@
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/drawable/ic_fab_create.xml" value="0.251" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/activity_main.xml" value="0.31765711842667804" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/chat_item.xml" value="0.31765711842667804" />
+        <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/chat_list_item.xml" value="0.31765711842667804" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/fragment_chat.xml" value="0.31765711842667804" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/fragment_home.xml" value="0.31765711842667804" />
+        <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/fragment_home_without_recycle.xml" value="0.31765711842667804" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/item_chat_left.xml" value="0.5" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/item_chat_right.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/WildberriesInternship/FourthWeek/src/main/res/layout/layout_footer.xml" value="0.31765711842667804" />

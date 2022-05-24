@@ -48,6 +48,10 @@ class HomeFragment : Fragment() {
             navController.navigate(R.id.action_homeFragment_to_chatFragment)
         }
 
+        binding.fab.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_homeWithoutRecycleFragment)
+        }
+
         return binding.root
     }
 
