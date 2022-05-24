@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.fourthweek.R
 import com.example.fourthweek.databinding.FragmentHomeWithoutRecycleBinding
 import java.util.*
@@ -18,6 +20,8 @@ class HomeWithoutRecycleFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeWithoutRecycleBinding
     private var list = mutableListOf<View>()
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
 
 
     override fun onCreateView(
@@ -26,6 +30,8 @@ class HomeWithoutRecycleFragment : Fragment() {
     ): View? {
         binding = FragmentHomeWithoutRecycleBinding.inflate(inflater, container, false)
 
+        navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.listNavHostFragment) as NavHostFragment
+        navController = navHostFragment.navController
         list = fillList(list)
         setList(list)
 
@@ -35,7 +41,6 @@ class HomeWithoutRecycleFragment : Fragment() {
             setList(list)
             binding.swipeToRefreshLayout.isRefreshing = false
         }
-
 
         return binding.root
     }
@@ -76,6 +81,10 @@ class HomeWithoutRecycleFragment : Fragment() {
             val dateTime: TextView = childView.findViewById(R.id.dateTimeTv)
             val unreadCounter: TextView = childView.findViewById(R.id.unreadCounterTv)
 
+            childView.setOnClickListener {
+                navController.navigate(R.id.action_homeWithoutRecycleFragment_to_chatFragment)
+            }
+
             chatName.text = getRandomString((1..10).random())
             lastMessage.text = getRandomString((1..20).random())
             dateTime.text = "${Random().nextInt(2)}${Random().nextInt(3)}:" +
@@ -107,6 +116,12 @@ class HomeWithoutRecycleFragment : Fragment() {
         list = fillList(list)
         removeList()
         setList(list)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        list.clear()
+        removeList()
     }
 
 

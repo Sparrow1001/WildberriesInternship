@@ -26,5 +26,9 @@
         android:id="@+id/homeWithoutRecycleFragment"
         android:name="com.example.fourthweek.norecyclerview.HomeWithoutRecycleFragment"
         android:label="fragment_home_without_recycle"
-        tools:layout="@layout/fragment_home_without_recycle" />
+        tools:layout="@layout/fragment_home_without_recycle" >
+        <action
+            android:id="@+id/action_homeWithoutRecycleFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
 </navigation>
