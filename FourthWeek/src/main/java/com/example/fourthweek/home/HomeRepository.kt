@@ -1,4 +1,4 @@
-package com.example.fourthweek
+package com.example.fourthweek.home
 
 import com.example.fourthweek.models.ChatData
 import java.util.*

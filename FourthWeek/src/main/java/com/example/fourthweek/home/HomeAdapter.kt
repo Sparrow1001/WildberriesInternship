@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fourthweek.ChatService
 import com.example.fourthweek.databinding.ChatListItemBinding
 import com.example.fourthweek.databinding.LayoutFooterBinding
 import com.example.fourthweek.models.ChatData
@@ -17,7 +16,8 @@ class HomeAdapter(
         private const val TYPE_ITEMS = 1
         private const val TYPE_FOOTER = 2
     }
-    private val chatService = ChatService()
+
+    private val homeRepository = HomeRepository()
 
     var chats: List<ChatData> = emptyList()
         set(newValue) {
@@ -54,7 +54,7 @@ class HomeAdapter(
         if (getItemViewType(position) == TYPE_FOOTER){
             val footerVh: FooterViewHolder = holder as FooterViewHolder
             footerVh.binding.loadMoreBt.setOnClickListener {
-                chats = chatService.getChats(chats)
+                chats = homeRepository.getChats(chats)
             }
         }else{
             val homeVh: HomeViewHolder = holder as HomeViewHolder

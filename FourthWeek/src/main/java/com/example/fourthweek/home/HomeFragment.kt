@@ -1,18 +1,14 @@
 package com.example.fourthweek.home
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.fourthweek.*
 import com.example.fourthweek.databinding.FragmentHomeBinding
-import com.example.fourthweek.models.ChatData
 
 
 class HomeFragment : Fragment() {
@@ -20,9 +16,6 @@ class HomeFragment : Fragment() {
     private lateinit var homeAdapter: HomeAdapter
     private lateinit var binding: FragmentHomeBinding
     private lateinit var homeRepository: HomeRepository
-
-    private val chatService: ChatService
-        get() = (activity?.applicationContext as App).chatService
 
 
     override fun onCreateView(
@@ -39,7 +32,8 @@ class HomeFragment : Fragment() {
             homeAdapter = HomeAdapter()
             adapter = homeAdapter
         }
-        homeAdapter.chats = chatService.getChats(homeAdapter.chats)
+
+        homeAdapter.chats = homeRepository.getChats(homeAdapter.chats)
 
 
         binding.swipeToRefreshLayout.setOnRefreshListener {
