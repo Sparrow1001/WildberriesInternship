@@ -15,6 +15,46 @@
         android:layout_height="match_parent"
         android:background="@color/lite_black">
 
+        <Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:navigationIcon="@drawable/ic_menu">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:textSize="25sp"
+                android:paddingStart="16dp"
+                android:text="Telegram"/>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_search"
+                android:layout_gravity="right"
+                android:layout_marginEnd="16dp"
+                android:background="@null"/>
+
+        </Toolbar>
+
+        <Button
+            android:id="@+id/secondFrameBt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mainToolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Открыть фрагмент без Recycler"
+            android:textSize="18sp"
+            android:backgroundTint="@color/lite_black"
+            android:elevation="10dp"
+            android:textAllCaps="false"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_chat_list"
             android:layout_width="0dp"
@@ -22,7 +62,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/secondFrameBt"
             tools:listitem="@layout/chat_list_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
