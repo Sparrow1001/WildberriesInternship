@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fourthweek.*
 import com.example.fourthweek.databinding.FragmentHomeBinding
+import com.example.fourthweek.models.ChatData
 
 
 class HomeFragment : Fragment() {
@@ -38,7 +39,9 @@ class HomeFragment : Fragment() {
 
         binding.swipeToRefreshLayout.setOnRefreshListener {
 
-            homeAdapter.chats = homeRepository.updateChats(homeAdapter.chats)
+            val list = mutableListOf<ChatData>()
+            list.addAll(homeRepository.updateChats(homeAdapter.chats))
+            homeAdapter.chats = list
 
             binding.swipeToRefreshLayout.isRefreshing = false
 

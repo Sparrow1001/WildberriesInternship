@@ -9,37 +9,19 @@ class HomeRepository {
     fun getChats(list: List<ChatData>): MutableList<ChatData> {
         val newList = mutableListOf<ChatData>()
         newList.addAll(list)
-//        if (newList.isNotEmpty()) {
-//
-//            for (i in 0..newList.size - 1) {
-//                val change = Random().nextBoolean()
-//                if (change) {
-//                    newList = ArrayList(newList)
-//                    newList[i].apply {
-//                        lastMessage = getRandomString(10)
-//                        unreadCounter = Random().nextInt(100)
-//                    }
-//                }
-//            }
-//
-//            return fillList(newList)
-//
-//        } else {
 
             return fillList(newList)
 
-//        }
     }
 
     fun updateChats(list: List<ChatData>): MutableList<ChatData>{
-        var newList = mutableListOf<ChatData>()
+        val newList = mutableListOf<ChatData>()
         newList.addAll(list)
         if (newList.isNotEmpty()) {
 
             for (i in 0..newList.size - 1) {
                 val change = Random().nextBoolean()
                 if (change) {
-                    newList = ArrayList(newList)
                     newList[i].apply {
                         lastMessage = getRandomString(10)
                         unreadCounter = Random().nextInt(100)
