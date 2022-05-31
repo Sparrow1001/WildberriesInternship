@@ -3,20 +3,23 @@ package com.example.fifthweekone
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 
 class HomeViewModel(
     app: Application,
-    repository: Repository
+    val repository: Repository
 ) : AndroidViewModel(app) {
 
-    val hero: MutableLiveData<Resource<List<HeroDTO>>> = MutableLiveData()
+    var hero: MutableLiveData<List<HeroDTO>> = MutableLiveData()
 
     init {
         getHeroes()
     }
 
-    fun getHeroes() {
-        TODO("Not yet implemented")
+    private fun getHeroes() {
+        val response = repository.getHeroFromApi()
+
+        hero = response as MutableLiveData<List<HeroDTO>>
     }
 
 }

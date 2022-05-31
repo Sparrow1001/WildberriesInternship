@@ -17,14 +17,12 @@ import com.squareup.picasso.Picasso
 class DetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailsBinding
-    private lateinit var viewModel: HomeViewModel
     val args: DetailsFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
-        viewModel = (activity as MainActivity).viewModel
 
         val hero = args.heroes
         setImage(hero.image.url)
