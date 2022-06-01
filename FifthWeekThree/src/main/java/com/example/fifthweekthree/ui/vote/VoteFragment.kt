@@ -56,7 +56,7 @@ class VoteFragment : Fragment() {
         }
 
         viewModel.catImage.observe(viewLifecycleOwner, Observer { response ->
-            when(response){
+            when (response) {
                 is Resource.Success -> {
                     response.data?.let { catResponse ->
                         binding.catImage.setImageURI(catResponse.url)
@@ -65,14 +65,13 @@ class VoteFragment : Fragment() {
                 is Resource.Error -> {
                     response.message?.let { message ->
                         Log.e(TAG, "An error occured: $message")
-                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
         })
     }
-
-
 
 
 }

@@ -9,11 +9,12 @@ import com.example.fifthweektwo.databinding.ItemSuperHeroBinding
 import com.example.fifthweektwo.model.HeroResponse
 import com.squareup.picasso.Picasso
 
-class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
+class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
-    inner class HeroViewHolder(val binding: ItemSuperHeroBinding): RecyclerView.ViewHolder(binding.root)
+    inner class HeroViewHolder(val binding: ItemSuperHeroBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<HeroResponse>(){
+    private val differCallback = object : DiffUtil.ItemCallback<HeroResponse>() {
         override fun areItemsTheSame(
             oldItem: HeroResponse,
             newItem: HeroResponse
@@ -40,7 +41,7 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         val hero = differ.currentList[position]
-        with(holder.binding){
+        with(holder.binding) {
             heroNameTextView.text = hero.name
 
             Picasso.with(holder.itemView.context)
@@ -59,7 +60,7 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
     private var onItemClickListener: ((HeroResponse) -> Unit)? = null
 
-    fun setOnItemClickListener(listener:(HeroResponse) -> Unit){
+    fun setOnItemClickListener(listener: (HeroResponse) -> Unit) {
         onItemClickListener = listener
     }
 

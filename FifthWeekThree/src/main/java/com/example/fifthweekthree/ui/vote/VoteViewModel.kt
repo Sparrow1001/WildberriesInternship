@@ -30,7 +30,7 @@ class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
         }
     }
 
-    fun saveImageInFavorites(){
+    fun saveImageInFavorites() {
         viewModelScope.launch(Dispatchers.IO) {
             catsRepository.saveImageInFavourites(FavouriteCatModel(imageId))
         }
@@ -41,7 +41,7 @@ class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
         try {
             _catImage.postValue(Resource.Success(response))
 
-        } catch (e: Exception){
+        } catch (e: Exception) {
             _catImage.postValue(Resource.Error(e.message.toString()))
         }
     }

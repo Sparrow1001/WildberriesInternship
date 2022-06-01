@@ -10,7 +10,7 @@ data class HeroResponse(
     val image: Image,
     val name: String,
     val powerstats: Powerstats
-): Serializable
+) : Serializable
 
 data class Appearance(
     val gender: String,

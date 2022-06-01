@@ -24,11 +24,15 @@ class DetailsFragment : Fragment() {
     ): View? {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val hero = args.heroes
         setImage(hero.image.url)
         setData(hero)
-
-        return binding.root
     }
 
     @SuppressLint("SetTextI18n")
@@ -44,7 +48,7 @@ class DetailsFragment : Fragment() {
         binding.intelligenceTv.text = "Intelligence: ${hero.powerstats.intelligence}"
 
         var aliases = ""
-        for (i in hero.biography.aliases.indices){
+        for (i in hero.biography.aliases.indices) {
             aliases += hero.biography.aliases[i] + ", "
         }
 
@@ -62,11 +66,11 @@ class DetailsFragment : Fragment() {
         hideProgressBar()
     }
 
-    private fun hideProgressBar(){
+    private fun hideProgressBar() {
         binding.paginationPg.visibility = View.INVISIBLE
     }
 
-    private fun showProgressBar(){
+    private fun showProgressBar() {
         binding.paginationPg.visibility = View.VISIBLE
     }
 

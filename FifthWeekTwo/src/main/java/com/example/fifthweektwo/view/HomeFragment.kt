@@ -32,6 +32,11 @@ class HomeFragment : Fragment() {
         viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         homeAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putSerializable("heroes", it)
@@ -43,7 +48,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.superHeroes.observe(viewLifecycleOwner, Observer { response ->
-            when(response){
+            when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { heroResponse ->
@@ -54,39 +59,27 @@ class HomeFragment : Fragment() {
                     hideProgressBar()
                     response.message?.let { message ->
                         Log.e(TAG, "An error occured: $message")
-                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
 
                 is Resource.Loading -> {
                     showProgressBar()
                 }
-
-//                is Resource.NoInternet -> {
-//                    hideProgressBar()
-//                    response.liveData?.let { astroResponse ->
-//                        astroResponse.observe(viewLifecycleOwner, Observer { response ->
-//                            picturesAdapter.differ.submitList(response)
-//                        })
-//
-//                    }
-//                }
             }
         })
-
-
-        return binding.root
     }
 
-    private fun hideProgressBar(){
+    private fun hideProgressBar() {
         binding.paginationProgressBar.visibility = View.INVISIBLE
     }
 
-    private fun showProgressBar(){
+    private fun showProgressBar() {
         binding.paginationProgressBar.visibility = View.VISIBLE
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         homeAdapter = HomeAdapter()
         binding.superHeroRv.apply {
             adapter = homeAdapter

@@ -49,7 +49,6 @@ interface CatApi {
         }
 
 
-
         private val json = kotlinx.serialization.json.Json {
             ignoreUnknownKeys = true
             isLenient = true

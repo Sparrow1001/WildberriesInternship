@@ -36,7 +36,7 @@ class HomeViewModel(
         try {
 
             val response = mutableListOf<Response<HeroResponse>>()
-            for (i in (1..10)) {
+            for (i in (1..20)) {
                 val hero = heroRepository.getHeroById(i.toString())
                 response.add(hero)
             }
@@ -66,7 +66,6 @@ class HomeViewModel(
         }
         return Resource.Success(heroList)
     }
-
 
 
 }

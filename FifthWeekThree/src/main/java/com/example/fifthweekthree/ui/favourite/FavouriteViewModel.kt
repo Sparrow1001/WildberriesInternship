@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class FavouriteViewModel(val catsRepository: CatsRepository) : ViewModel(){
+class FavouriteViewModel(val catsRepository: CatsRepository) : ViewModel() {
 
     val favouriteCats: MutableLiveData<Resource<List<FavouriteCatImageModel>>> = MutableLiveData()
 
@@ -18,7 +18,7 @@ class FavouriteViewModel(val catsRepository: CatsRepository) : ViewModel(){
         getFavouriteCats()
     }
 
-    fun getFavouriteCats(){
+    fun getFavouriteCats() {
         favouriteCats.postValue(Resource.Loading())
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -31,7 +31,7 @@ class FavouriteViewModel(val catsRepository: CatsRepository) : ViewModel(){
         try {
             favouriteCats.postValue(Resource.Success(response))
 
-        } catch (e: Exception){
+        } catch (e: Exception) {
             favouriteCats.postValue(Resource.Error(e.message.toString()))
         }
     }

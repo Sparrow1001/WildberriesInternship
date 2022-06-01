@@ -167,13 +167,13 @@
             android:id="@+id/aliasesTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:text="Aliases: blalala"
             android:textColor="@color/gray"
             android:textSize="18sp"
             app:layout_constrainedWidth="true"
-            app:layout_constraintHorizontal_bias="0"
-            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="@id/contentStartGl"
             app:layout_constraintTop_toBottomOf="@id/biographyTitleTv" />
 
@@ -209,8 +209,8 @@
             android:textColor="@color/gray"
             android:textSize="18sp"
             app:layout_constrainedWidth="true"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="@id/contentStartGl"
             app:layout_constraintTop_toBottomOf="@id/firsAppearanceTv" />
 

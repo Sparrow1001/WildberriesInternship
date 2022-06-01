@@ -10,9 +10,10 @@ import com.example.fifthweekthree.models.FavouriteCatImageModel
 
 class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.CatViewHolder>() {
 
-    inner class CatViewHolder(val binding: ItemFavouriteBinding): RecyclerView.ViewHolder(binding.root)
+    inner class CatViewHolder(val binding: ItemFavouriteBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<FavouriteCatImageModel>(){
+    private val differCallback = object : DiffUtil.ItemCallback<FavouriteCatImageModel>() {
         override fun areItemsTheSame(
             oldItem: FavouriteCatImageModel,
             newItem: FavouriteCatImageModel
@@ -39,9 +40,9 @@ class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.CatViewHolder>() 
 
     override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
         val cat = differ.currentList[position]
-        with(holder.binding){
+        with(holder.binding) {
 
-           catImage.setImageURI(cat.image.url)
+            catImage.setImageURI(cat.image.url)
 
         }
     }

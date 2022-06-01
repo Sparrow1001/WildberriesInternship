@@ -5,10 +5,11 @@ import com.example.fifthweekthree.models.CatImageModel
 import com.example.fifthweekthree.models.FavouriteCatImageModel
 import com.example.fifthweekthree.models.FavouriteCatModel
 import com.example.fifthweekthree.models.ResponseModel
+import com.example.fifthweekthree.utils.Constants.Companion.FAVOURITES
 import io.ktor.client.*
 import io.ktor.client.request.*
 
-class CatApiImpl( private val client: HttpClient) : CatApi {
+class CatApiImpl(private val client: HttpClient) : CatApi {
 
     override suspend fun getCatsImages(): List<CatImageModel> {
         return try {
@@ -25,7 +26,7 @@ class CatApiImpl( private val client: HttpClient) : CatApi {
     override suspend fun saveImageInFavourites(favourite: FavouriteCatModel): ResponseModel? {
         return try {
             client.post<ResponseModel> {
-                url("https://api.thecatapi.com/v1/favourites")
+                url(FAVOURITES)
                 header("x-api-key", "fb6a7535-05e2-4e55-89bf-e662b09e6a74")
                 body = favourite
             }
@@ -37,7 +38,7 @@ class CatApiImpl( private val client: HttpClient) : CatApi {
     override suspend fun getFavouriteCats(): List<FavouriteCatImageModel> {
         return try {
             client.get {
-                url("https://api.thecatapi.com/v1/favourites")
+                url(FAVOURITES)
                 header("x-api-key", "fb6a7535-05e2-4e55-89bf-e662b09e6a74")
             }
         } catch (ex: Exception) {

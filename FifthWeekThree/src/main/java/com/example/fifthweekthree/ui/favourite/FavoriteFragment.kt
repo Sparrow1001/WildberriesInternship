@@ -48,7 +48,7 @@ class FavoriteFragment : Fragment() {
         }
 
         viewModel.favouriteCats.observe(viewLifecycleOwner, Observer { response ->
-            when(response){
+            when (response) {
                 is Resource.Success -> {
                     response.data?.let { catResponse ->
                         favouriteAdapter.differ.submitList(catResponse)
@@ -57,20 +57,20 @@ class FavoriteFragment : Fragment() {
                 is Resource.Error -> {
                     response.message?.let { message ->
                         Log.e(ContentValues.TAG, "An error occured: $message")
-                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
         })
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         favouriteAdapter = FavouriteAdapter()
         binding.favouriteRv.adapter = favouriteAdapter
-        binding.favouriteRv.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+        binding.favouriteRv.layoutManager =
+            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
     }
-
-
 
 
 }
