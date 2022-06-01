@@ -3,6 +3,7 @@ package com.example.fifthweekone
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import com.example.fifthweekone.view.home.HomeViewModel
 
 class MainActivity : AppCompatActivity() {
 

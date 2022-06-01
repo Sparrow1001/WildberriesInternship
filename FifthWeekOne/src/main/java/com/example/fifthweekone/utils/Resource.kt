@@ -1,4 +1,4 @@
-package com.example.fifthweekone
+package com.example.fifthweekone.utils
 
 import androidx.lifecycle.LiveData
 

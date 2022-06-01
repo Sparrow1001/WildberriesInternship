@@ -1,9 +1,10 @@
-package com.example.fifthweekone
+package com.example.fifthweekone.view.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
+import com.example.fifthweekone.HeroDTO
+import com.example.fifthweekone.Repository
 
 class HomeViewModel(
     app: Application,

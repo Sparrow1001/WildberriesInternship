@@ -1,4 +1,4 @@
-package com.example.fifthweekone
+package com.example.fifthweekone.view.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fifthweekone.MainActivity
+import com.example.fifthweekone.R
 import com.example.fifthweekone.databinding.FragmentHomeBinding
 
 
@@ -22,11 +25,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeAdapter = HomeAdapter()
         viewModel = (activity as MainActivity).viewModel
 
-        binding.dotaHeroesRv.layoutManager = LinearLayoutManager(context)
-        binding.dotaHeroesRv.adapter = homeAdapter
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
 
         viewModel.hero.observe(viewLifecycleOwner, Observer { response ->
             homeAdapter.differ.submitList(response)
@@ -41,9 +47,14 @@ class HomeFragment : Fragment() {
                 bundle
             )
         }
+    }
+
+    private fun setupRecyclerView(){
+        homeAdapter = HomeAdapter()
 
 
-        return binding.root
+        binding.dotaHeroesRv.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+        binding.dotaHeroesRv.adapter = homeAdapter
     }
 
 

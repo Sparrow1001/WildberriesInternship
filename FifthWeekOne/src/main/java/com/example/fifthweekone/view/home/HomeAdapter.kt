@@ -1,13 +1,12 @@
-package com.example.fifthweekone
+package com.example.fifthweekone.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.transform.CircleCropTransformation
+import com.example.fifthweekone.HeroDTO
 import com.example.fifthweekone.databinding.ItemHeroBinding
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {

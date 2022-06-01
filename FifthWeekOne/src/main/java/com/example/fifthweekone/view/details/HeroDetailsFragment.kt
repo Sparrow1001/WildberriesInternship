@@ -1,4 +1,4 @@
-package com.example.fifthweekone.view
+package com.example.fifthweekone.view.details
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -21,11 +21,17 @@ class HeroDetailsFragment : Fragment() {
     ): View? {
         binding = FragmentHeroDetailsBinding.inflate(inflater, container, false)
 
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val hero = args.hero
         setImage(hero.img)
         setData(hero)
 
-        return binding.root
     }
 
     @SuppressLint("SetTextI18n")

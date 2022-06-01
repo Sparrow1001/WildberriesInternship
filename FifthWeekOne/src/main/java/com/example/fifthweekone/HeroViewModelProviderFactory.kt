@@ -3,6 +3,7 @@ package com.example.fifthweekone
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.fifthweekone.view.home.HomeViewModel
 
 class HeroViewModelProviderFactory(
     val app: Application,
