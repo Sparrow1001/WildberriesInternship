@@ -4,9 +4,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CatImageModel(
+data class ResponseModel(
     @SerialName("id")
-    val id: String,
-    @SerialName("url")
-    val url: String
+    val id: Long,
+    @SerialName("message")
+    val message: String
 )
