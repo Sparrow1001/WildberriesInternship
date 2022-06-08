@@ -1,4 +1,4 @@
-package com.example.sixsweekcoroutines
+package com.example.sixsweekflow
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.example.sixsweekcoroutines.databinding.FragmentTopBinding
+import com.example.sixsweekflow.databinding.FragmentTopBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
+
 
 class TopFragment : Fragment() {
 
@@ -24,7 +29,7 @@ class TopFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentTopBinding.inflate(inflater, container, false)
         viewModel = (activity as MainActivity).viewModel
         return binding.root
@@ -64,14 +69,15 @@ class TopFragment : Fragment() {
 
     private suspend fun updateScreen() {
         while (true) {
-            pi = piCounter(counter)
-            binding.numberTV.text = pi
+            piCounter(counter).collect{
+                binding.numberTV.text = it
+            }
             counter++
             delay(50)
         }
     }
 
-    private fun piCounter(n: Int): String {
+    private fun piCounter(n: Int): Flow<String> = flow {
         val pi = StringBuilder()
         val boxes = n * 10 / 3
         val reminders = IntArray(boxes)
@@ -118,7 +124,8 @@ class TopFragment : Fragment() {
         if (pi.length >= 2) {
             pi.insert(1, '.')
         }
-        return pi.toString()
-    }
+        emit(pi.toString())
+    }.flowOn(Dispatchers.Default)
+
 
 }
