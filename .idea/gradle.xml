@@ -18,8 +18,10 @@
             <option value="$PROJECT_DIR$/FourthWeek" />
             <option value="$PROJECT_DIR$/SecondWeekActivity" />
             <option value="$PROJECT_DIR$/SecondWeekFragment" />
+            <option value="$PROJECT_DIR$/SixWeek" />
+            <option value="$PROJECT_DIR$/SixsWeekCoroutines" />
+            <option value="$PROJECT_DIR$/SixsWeekFlow" />
             <option value="$PROJECT_DIR$/ThirdWeek" />
-            <option value="$PROJECT_DIR$/myapplication" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
