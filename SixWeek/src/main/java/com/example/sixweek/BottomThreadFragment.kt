@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sixweek.databinding.FragmentBottomThreadBinding
 import java.util.*
-import kotlin.random.Random
 
 
 class BottomThreadFragment : Fragment() {
@@ -51,12 +50,12 @@ class BottomThreadFragment : Fragment() {
         Thread {
             Looper.prepare()
             handler = Handler(Looper.myLooper()!!)
-            handler.postDelayed(timeUpdaterRunnable, 1000)
+            handler.postDelayed(timeUpdater, 1000)
             Looper.loop()
         }.start()
     }
 
-    private val timeUpdaterRunnable: Runnable = object : Runnable {
+    private val timeUpdater: Runnable = object : Runnable {
         override fun run() {
             val hours = seconds / 3600
             val minutes = seconds % 3600 / 60
