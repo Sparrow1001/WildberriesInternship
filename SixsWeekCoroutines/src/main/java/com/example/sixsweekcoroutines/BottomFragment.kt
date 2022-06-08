@@ -62,8 +62,8 @@ class BottomFragment : Fragment() {
         }
     }
 
-    private suspend fun setupUi(){
-        while (true){
+    private suspend fun setupUi() {
+        while (true) {
             seconds = counter % 60
             minutes = counter / 60
             hours = minutes / 60

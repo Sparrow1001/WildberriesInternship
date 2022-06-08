@@ -19,7 +19,7 @@ class TopFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
 
     private var pi = ""
-    private var counter = 3
+    private var counter = START_COUNTER
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,11 +51,11 @@ class TopFragment : Fragment() {
                 lifecycleScope.coroutineContext.cancelChildren()
             }
             "reset" -> {
-                counter = 3
+                counter = START_COUNTER
                 pi = ""
-                binding.numberTV.text = "3.1"
+                binding.numberTV.text = "$START_VALUE"
                 lifecycleScope.coroutineContext.cancelChildren()
-                lifecycleScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.IO) {
                     updateScreen()
                 }
             }
