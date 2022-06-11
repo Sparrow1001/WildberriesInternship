@@ -1,9 +1,9 @@
-package com.example.fifthweekone
+package com.example.sevensweekone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.example.fifthweekone.view.home.HomeViewModel
+import com.example.sevensweekone.view.home.HomeViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,4 +18,3 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelProviderFactory)[HomeViewModel::class.java]
     }
 }
-
