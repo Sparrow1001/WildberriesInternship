@@ -61,6 +61,9 @@ class FavoriteFragment : Fragment() {
                             .show()
                     }
                 }
+                else -> {
+
+                }
             }
         })
     }

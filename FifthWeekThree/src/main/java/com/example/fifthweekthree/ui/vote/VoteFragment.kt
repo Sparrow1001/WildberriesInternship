@@ -69,6 +69,9 @@ class VoteFragment : Fragment() {
                             .show()
                     }
                 }
+                else -> {
+
+                }
             }
         })
     }
