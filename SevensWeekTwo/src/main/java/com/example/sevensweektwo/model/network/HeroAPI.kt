@@ -1,8 +1,8 @@
-package com.example.sevensweektwo.model
+package com.example.sevensweektwo.model.network
 
+import com.example.sevensweektwo.model.HeroResponse
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface HeroAPI {
 

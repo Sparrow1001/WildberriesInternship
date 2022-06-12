@@ -54,6 +54,9 @@ class HomeFragment : Fragment() {
                             .show()
                     }
                 }
+                else -> {
+
+                }
             }
 
         })

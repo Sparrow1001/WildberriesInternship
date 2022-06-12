@@ -8,7 +8,6 @@ import com.example.sevensweektwo.Resource
 import com.example.sevensweektwo.model.HeroRepository
 import com.example.sevensweektwo.model.HeroResponse
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import java.io.IOException
 
 class HomeViewModel(
@@ -30,7 +29,7 @@ class HomeViewModel(
         superHeroes.postValue(Resource.Loading())
         try {
 
-            superHeroes.postValue(handleSuperHeroResponse(heroRepository.getHeroById()))
+            superHeroes.postValue(heroRepository.getHeroes())
 
         } catch (t: Throwable) {
             when (t) {
@@ -40,14 +39,7 @@ class HomeViewModel(
         }
     }
 
-    private fun handleSuperHeroResponse(response: Response<List<HeroResponse>>) : Resource<List<HeroResponse>>{
-        if (response.isSuccessful){
-            response.body()?.let { resultResponse ->
-                return Resource.Success(resultResponse)
-            }
-        }
-        return Resource.Error(response.message())
-    }
+
 
 
 }

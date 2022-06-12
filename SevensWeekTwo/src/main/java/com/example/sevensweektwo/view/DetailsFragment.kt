@@ -35,18 +35,18 @@ class DetailsFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setData(hero: HeroResponse) {
-        binding.nameTv.text = "Name: ${hero.name.toString()}"
+        binding.nameTv.text = "Name: ${hero.name}"
         if (hero.appearance.gender != null){
             binding.genderTv.text = "Gender: ${hero.appearance.gender}"
         } else binding.genderTv.text = "Gender: Unknown"
 
-        binding.hairColorTv.text = "Hair Color: ${hero.appearance.hairColor.toString()}"
+        binding.hairColorTv.text = "Hair Color: ${hero.appearance.hairColor}"
         binding.heightTv.text = "Height: ${hero.appearance.height.toString()}"
         binding.weightTv.text = "Weight: ${hero.appearance.weight.toString()}"
         binding.powerTv.text = "Power: ${hero.powerstats.power}"
         binding.speedTv.text = "Speed: ${hero.powerstats.speed}"
-        binding.strengthTv.text = "Strength: ${hero.powerstats.strength.toString()}"
-        binding.intelligenceTv.text = "Intelligence: ${hero.powerstats.intelligence.toString()}"
+        binding.strengthTv.text = "Strength: ${hero.powerstats.strength}"
+        binding.intelligenceTv.text = "Intelligence: ${hero.powerstats.intelligence}"
 
         var aliases = ""
         for (i in hero.biography.aliases.indices) {
@@ -54,10 +54,10 @@ class DetailsFragment : Fragment() {
         }
 
         binding.aliasesTv.text = "Aliases: $aliases"
-        binding.alignmentTv.text = "Alignment: ${hero.biography.alignment.toString()}"
-        binding.firsAppearanceTv.text = "First appearance: ${hero.biography.firstAppearance.toString()}"
+        binding.alignmentTv.text = "Alignment: ${hero.biography.alignment}"
+        binding.firsAppearanceTv.text = "First appearance: ${hero.biography.firstAppearance}"
         binding.fullNameTv.text = "Full Name: ${hero.biography.fullName}"
-        binding.placeOfBirthTv.text = "Place Of Birth: ${hero.biography.placeOfBirth.toString()}"
+        binding.placeOfBirthTv.text = "Place Of Birth: ${hero.biography.placeOfBirth}"
     }
 
     private fun setImage(url: String) {

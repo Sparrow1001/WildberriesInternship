@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sevensweektwo.MainActivity
 import com.example.sevensweektwo.R
@@ -84,7 +85,7 @@ class HomeFragment : Fragment() {
         homeAdapter = HomeAdapter()
         binding.superHeroRv.apply {
             adapter = homeAdapter
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
         }
     }
 

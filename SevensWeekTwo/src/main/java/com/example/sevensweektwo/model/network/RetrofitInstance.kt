@@ -1,4 +1,4 @@
-package com.example.sevensweektwo.model
+package com.example.sevensweektwo.model.network
 
 import com.example.sevensweektwo.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
