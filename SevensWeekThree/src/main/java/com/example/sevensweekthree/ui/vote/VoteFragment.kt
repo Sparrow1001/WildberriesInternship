@@ -12,8 +12,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.sevensweekthree.data.CatsRepository
 import com.example.sevensweekthree.R
+import com.example.sevensweekthree.data.database.CatsDatabase
 import com.example.sevensweekthree.databinding.FragmentVoteBinding
 import com.example.sevensweekthree.data.network.CatApi
+import com.example.sevensweekthree.ui.MainActivity
 import com.example.sevensweekthree.utils.Resource
 import com.facebook.drawee.backends.pipeline.Fresco
 
@@ -26,7 +28,6 @@ class VoteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Fresco.initialize(context)
-        viewModel = VoteViewModel(CatsRepository(CatApi.create()))
     }
 
     override fun onCreateView(
@@ -41,7 +42,7 @@ class VoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = (activity as MainActivity).voteViewModel
         binding.likeBt.setOnClickListener {
             viewModel.getCatImages()
             viewModel.saveImageInFavorites()

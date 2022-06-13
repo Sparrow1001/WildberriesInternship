@@ -13,8 +13,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sevensweekthree.data.CatsRepository
 import com.example.sevensweekthree.R
+import com.example.sevensweekthree.data.database.CatsDatabase
 import com.example.sevensweekthree.databinding.FragmentFavoriteBinding
 import com.example.sevensweekthree.data.network.CatApi
+import com.example.sevensweekthree.ui.MainActivity
 import com.example.sevensweekthree.utils.Resource
 
 
@@ -24,23 +26,17 @@ class FavoriteFragment : Fragment() {
     private lateinit var viewModel: FavouriteViewModel
     private lateinit var favouriteAdapter: FavouriteAdapter
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = FavouriteViewModel(CatsRepository(CatApi.create()))
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = (activity as MainActivity).favoriteViewModel
         setupRecyclerView()
 
         binding.goBackBt.setOnClickListener {
