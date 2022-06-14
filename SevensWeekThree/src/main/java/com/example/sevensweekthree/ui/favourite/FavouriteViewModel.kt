@@ -2,7 +2,6 @@ package com.example.sevensweekthree.ui.favourite
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.sevensweekthree.data.CatsRepository
 import com.example.sevensweekthree.data.database.CatsEntity
@@ -24,22 +23,14 @@ class FavouriteViewModel(val catsRepository: CatsRepository) : ViewModel() {
         favouriteCats.postValue(Resource.Loading())
 
         viewModelScope.launch(Dispatchers.IO) {
-            val response = catsRepository.getFavouriteCats()
+            val response = catsRepository.getFavouritesCats()
             handleResult(response)
         }
     }
 
-    private suspend fun handleResult(response: List<FavouriteCatImageModel>) {
+    private fun handleResult(response: List<FavouriteCatImageModel>) {
         try {
-            if (catsRepository.getSavedCats().value?.equals(null) == true){
-                favouriteCats.postValue(Resource.Success(response))
-            } else {
-                for (i in response.indices){
-                    catsRepository.upsert(CatsEntity(null, response[i].id, response[i].image.url))
-                }
-               //zz favouriteCats.postValue(catsRepository.getSavedCats().map { FavouriteCatImageModel() })
 
-            }
             favouriteCats.postValue(Resource.Success(response))
 
         } catch (e: Exception) {

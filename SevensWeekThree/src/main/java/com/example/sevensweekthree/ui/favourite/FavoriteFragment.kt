@@ -44,6 +44,8 @@ class FavoriteFragment : Fragment() {
             findNavController().navigate(R.id.action_favoriteFragment_to_voteFragment)
         }
 
+        refreshScreen()
+
         viewModel.favouriteCats.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {
@@ -65,6 +67,11 @@ class FavoriteFragment : Fragment() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getFavouriteCats()
+    }
+
     private fun setupRecyclerView() {
         favouriteAdapter = FavouriteAdapter()
         binding.favouriteRv.adapter = favouriteAdapter
@@ -72,9 +79,10 @@ class FavoriteFragment : Fragment() {
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
     }
 
-    private fun refreshScreen(response: List<FavouriteCatImageModel>){
+    private fun refreshScreen(){
         binding.swipeRefreshLayout.setOnRefreshListener {
-            favouriteAdapter.differ.submitList(response)
+            viewModel.getFavouriteCats()
+            binding.swipeRefreshLayout.isRefreshing = false
         }
     }
 

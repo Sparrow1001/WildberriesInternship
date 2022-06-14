@@ -25,7 +25,7 @@ class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
 
     fun getCatImages() {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = catsRepository.getCatsImages()[0]
+            val response = catsRepository.getCatsImagesFromApi()[0]
             imageId = response.id
             handleResult(response)
         }
@@ -33,7 +33,7 @@ class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
 
     fun saveImageInFavorites() {
         viewModelScope.launch(Dispatchers.IO) {
-            catsRepository.saveImageInFavourites(FavouriteCatModel(imageId))
+            catsRepository.saveImageInFavouritesInApi(FavouriteCatModel(imageId))
         }
     }
 
