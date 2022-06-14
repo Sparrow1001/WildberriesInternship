@@ -1,5 +1,6 @@
 package com.example.sevensweekthree.ui.vote
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -39,6 +40,7 @@ class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
     private fun handleResult(response: CatImageModel) {
 
         try {
+            Log.d("GGS", response.toString())
             _catImage.postValue(Resource.Success(response))
 
         } catch (e: Exception) {

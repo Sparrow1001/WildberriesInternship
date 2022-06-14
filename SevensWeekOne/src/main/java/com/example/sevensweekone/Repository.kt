@@ -36,4 +36,8 @@ class Repository(
     private fun getHeroFromApi(): List<HeroDTO> {
         return heroApi.getHeroesFromApi()
     }
+
+    fun getHero(): LiveData<Resource<List<HeroDTO>>> {
+        return getHeroFromApi()
+    }
 }

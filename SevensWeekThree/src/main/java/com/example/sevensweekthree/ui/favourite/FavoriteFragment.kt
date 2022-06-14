@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sevensweekthree.data.CatsRepository
 import com.example.sevensweekthree.R
 import com.example.sevensweekthree.data.database.CatsDatabase
+import com.example.sevensweekthree.data.models.FavouriteCatImageModel
 import com.example.sevensweekthree.databinding.FragmentFavoriteBinding
 import com.example.sevensweekthree.data.network.CatApi
 import com.example.sevensweekthree.ui.MainActivity
@@ -69,6 +70,12 @@ class FavoriteFragment : Fragment() {
         binding.favouriteRv.adapter = favouriteAdapter
         binding.favouriteRv.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+    }
+
+    private fun refreshScreen(response: List<FavouriteCatImageModel>){
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            favouriteAdapter.differ.submitList(response)
+        }
     }
 
 

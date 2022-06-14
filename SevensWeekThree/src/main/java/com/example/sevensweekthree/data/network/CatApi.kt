@@ -35,9 +35,9 @@ interface CatApi {
                     }
 
                     install(HttpTimeout) {
-                        requestTimeoutMillis = 15000L
-                        connectTimeoutMillis = 15000L
-                        socketTimeoutMillis = 15000L
+                        requestTimeoutMillis = 25000L
+                        connectTimeoutMillis = 25000L
+                        socketTimeoutMillis = 25000L
                     }
 
                     defaultRequest {

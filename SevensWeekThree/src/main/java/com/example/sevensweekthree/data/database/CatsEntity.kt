@@ -8,7 +8,7 @@ import androidx.room.*
 )
 data class CatsEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val catId: Int,
+    val id: Int?,
+    val catId: Long,
     val imageUrl: String
 )
