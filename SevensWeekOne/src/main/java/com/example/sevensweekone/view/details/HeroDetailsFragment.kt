@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.sevensweekone.data.HeroDTO
 import com.example.sevensweekone.databinding.FragmentHeroDetailsBinding
+import com.example.sevensweekone.utils.Constants.Companion.BASE_URL
 
 class HeroDetailsFragment : Fragment() {
 
@@ -20,9 +21,6 @@ class HeroDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHeroDetailsBinding.inflate(inflater, container, false)
-
-
-
         return binding.root
     }
 
@@ -31,15 +29,22 @@ class HeroDetailsFragment : Fragment() {
         val hero = args.heroes
         setImage(hero.img)
         setData(hero)
-
     }
 
     @SuppressLint("SetTextI18n")
     private fun setData(hero: HeroDTO) {
         with(binding) {
             nameTv.text = "Name: ${hero.localized_name}"
-            primaryAttrTv.text = "Primary attribute: ${hero.primary_attr}"
-            rolesTv.text = "Roles: ${hero.roles}"
+            when (hero.primary_attr) {
+                "int" -> primaryAttrTv.text = "Primary attribute: Intelligence"
+                "agi" -> primaryAttrTv.text = "Primary attribute: Agility"
+                "str" -> primaryAttrTv.text = "Primary attribute: Strength"
+            }
+
+            var roles = ""
+            for (i in hero.roles) roles = "$roles$i, "
+            rolesTv.text = "Roles: ${roles.removeSuffix(", ")}"
+
             attackRangeTv.text = "Attack Range: ${hero.attack_range}"
             attackTypeTv.text = "Attack Type: ${hero.attack_type}"
             baseAttackMaxTv.text = "Base Attack Max: ${hero.base_attack_max}"
@@ -60,7 +65,7 @@ class HeroDetailsFragment : Fragment() {
 
     private fun setImage(url: String) {
 
-        binding.heroIv.load("https://api.opendota.com${url}")
+        binding.heroIv.load("$BASE_URL${url}")
 
     }
 

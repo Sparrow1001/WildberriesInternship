@@ -19,10 +19,12 @@ class HeroLocal(private val context: Context) {
         val heroesJson = adapter.toJson(heroes)
 
         return try {
+
             val fileOutputStream = context.openFileOutput("heroes.txt", MODE_PRIVATE)
             fileOutputStream.write(heroesJson.toByteArray())
             fileOutputStream.close()
             true
+
         } catch (e: Exception) {
             false
         }
@@ -40,7 +42,6 @@ class HeroLocal(private val context: Context) {
             adapter.fromJson(heroesJson) ?: emptyList()
 
         } catch (e: Exception) {
-
             e.message?.let { Log.e("JsError", it) }
             emptyList()
         }

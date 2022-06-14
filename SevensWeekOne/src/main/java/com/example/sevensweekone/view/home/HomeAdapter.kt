@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.sevensweekone.data.HeroDTO
 import com.example.sevensweekone.databinding.ItemHeroBinding
+import com.example.sevensweekone.utils.Constants.Companion.BASE_URL
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
@@ -42,7 +43,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
         val hero = differ.currentList[position]
         with(holder.binding) {
             heroNameTextView.text = hero.localized_name
-            heroImageView.load("https://api.opendota.com${hero.icon}")
+            heroImageView.load("$BASE_URL${hero.icon}")
 
             holder.itemView.setOnClickListener {
                 onItemClickListener?.let { it(hero) }

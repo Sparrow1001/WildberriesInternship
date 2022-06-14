@@ -29,7 +29,6 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = (activity as MainActivity).viewModel
-
         return binding.root
     }
 
@@ -41,20 +40,22 @@ class HomeFragment : Fragment() {
 
             when (response) {
                 is Resource.Success -> {
+                    hideProgressBar()
                     response.data.let { heroResponse ->
                         homeAdapter.differ.submitList(heroResponse)
                     }
 
                 }
                 is Resource.Error -> {
+                    hideProgressBar()
                     response.message?.let { message ->
                         Log.e(TAG, "An error occured: $message")
                         Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
                             .show()
                     }
                 }
-                else -> {
-
+                is Resource.Loading -> {
+                    showProgressBar()
                 }
             }
 
@@ -73,11 +74,17 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         homeAdapter = HomeAdapter()
-
-
         binding.dotaHeroesRv.layoutManager =
             GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
         binding.dotaHeroesRv.adapter = homeAdapter
+    }
+
+    private fun showProgressBar() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        binding.progressBar.visibility = View.INVISIBLE
     }
 
 

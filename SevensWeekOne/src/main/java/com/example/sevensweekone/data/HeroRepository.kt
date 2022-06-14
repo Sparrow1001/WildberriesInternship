@@ -4,7 +4,7 @@ import android.util.Log
 import com.example.sevensweekone.data.local.HeroLocal
 import com.example.sevensweekone.data.network.HeroAPI
 
-class Repository(
+class HeroRepository(
     private val heroApi: HeroAPI,
     private val heroLocal: HeroLocal
 ) {

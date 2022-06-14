@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso
 class DetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailsBinding
-    val args: DetailsFragmentArgs by navArgs()
+    private val args: DetailsFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,9 +36,7 @@ class DetailsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setData(hero: HeroResponse) {
         binding.nameTv.text = "Name: ${hero.name}"
-        if (hero.appearance.gender != null){
-            binding.genderTv.text = "Gender: ${hero.appearance.gender}"
-        } else binding.genderTv.text = "Gender: Unknown"
+        binding.genderTv.text = "Gender: ${hero.appearance.gender}"
 
         binding.hairColorTv.text = "Hair Color: ${hero.appearance.hairColor}"
         binding.heightTv.text = "Height: ${hero.appearance.height.toString()}"
@@ -48,16 +46,31 @@ class DetailsFragment : Fragment() {
         binding.strengthTv.text = "Strength: ${hero.powerstats.strength}"
         binding.intelligenceTv.text = "Intelligence: ${hero.powerstats.intelligence}"
 
+
         var aliases = ""
-        for (i in hero.biography.aliases.indices) {
-            aliases += hero.biography.aliases[i] + ", "
+        for (i in hero.biography.aliases) aliases = "$aliases$i, "
+
+        if (aliases == "" || aliases.removeSuffix(", ") == "-") {
+            binding.aliasesTv.text = "Aliases: TOP SECRET"
+        } else {
+            binding.aliasesTv.text = "Aliases: ${aliases.removeSuffix(", ")}"
         }
 
-        binding.aliasesTv.text = "Aliases: $aliases"
+
         binding.alignmentTv.text = "Alignment: ${hero.biography.alignment}"
         binding.firsAppearanceTv.text = "First appearance: ${hero.biography.firstAppearance}"
-        binding.fullNameTv.text = "Full Name: ${hero.biography.fullName}"
-        binding.placeOfBirthTv.text = "Place Of Birth: ${hero.biography.placeOfBirth}"
+
+        if (hero.biography.fullName == "" || hero.biography.fullName == "-") {
+            binding.fullNameTv.text = "Full Name: TOP SECRET"
+        } else {
+            binding.fullNameTv.text = "Full Name: ${hero.biography.fullName}"
+        }
+
+        if (hero.biography.placeOfBirth == "" || hero.biography.placeOfBirth == "-") {
+            binding.placeOfBirthTv.text = "Place Of Birth: TOP SECRET"
+        } else {
+            binding.placeOfBirthTv.text = "Place Of Birth: ${hero.biography.placeOfBirth}"
+        }
     }
 
     private fun setImage(url: String) {
