@@ -1,20 +1,18 @@
 package com.example.sevensweekone.view.home
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sevensweekone.HeroDTO
-import com.example.sevensweekone.Repository
+import com.example.sevensweekone.data.HeroDTO
+import com.example.sevensweekone.data.Repository
 import com.example.sevensweekone.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    app: Application,
     private val repository: Repository
-) : AndroidViewModel(app) {
+) : ViewModel() {
 
     var hero: MutableLiveData<Resource<List<HeroDTO>>> = MutableLiveData()
 
@@ -23,10 +21,7 @@ class HomeViewModel(
     }
 
     private fun getHeroes() = viewModelScope.launch(Dispatchers.Default) {
-        getResp()
-    }
-
-    private fun getResp(){
+        hero.postValue(Resource.Loading())
         val response = repository.getHeroes()
         Log.d("GGS4", response.toString())
         hero.postValue(Resource.Success(response))

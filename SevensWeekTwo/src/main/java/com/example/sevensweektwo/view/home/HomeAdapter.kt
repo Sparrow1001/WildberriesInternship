@@ -1,29 +1,30 @@
-package com.example.sevensweekone.view.home
+package com.example.sevensweektwo.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.example.sevensweekone.data.HeroDTO
-import com.example.sevensweekone.databinding.ItemHeroBinding
+import com.example.sevensweektwo.databinding.ItemSuperHeroBinding
+import com.example.sevensweektwo.data.HeroResponse
+import com.squareup.picasso.Picasso
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
-    inner class HeroViewHolder(val binding: ItemHeroBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class HeroViewHolder(val binding: ItemSuperHeroBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<HeroDTO>() {
+    private val differCallback = object : DiffUtil.ItemCallback<HeroResponse>() {
         override fun areItemsTheSame(
-            oldItem: HeroDTO,
-            newItem: HeroDTO
+            oldItem: HeroResponse,
+            newItem: HeroResponse
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: HeroDTO,
-            newItem: HeroDTO
+            oldItem: HeroResponse,
+            newItem: HeroResponse
         ): Boolean {
             return oldItem == newItem
         }
@@ -34,15 +35,18 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemHeroBinding.inflate(inflater, parent, false)
+        val binding = ItemSuperHeroBinding.inflate(inflater, parent, false)
         return HeroViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         val hero = differ.currentList[position]
         with(holder.binding) {
-            heroNameTextView.text = hero.localized_name
-            heroImageView.load("https://api.opendota.com${hero.icon}")
+            heroNameTextView.text = hero.name
+
+            Picasso.with(holder.itemView.context)
+                .load(hero.images.sm)
+                .into(heroImageView)
 
             holder.itemView.setOnClickListener {
                 onItemClickListener?.let { it(hero) }
@@ -54,9 +58,9 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
         return differ.currentList.size
     }
 
-    private var onItemClickListener: ((HeroDTO) -> Unit)? = null
+    private var onItemClickListener: ((HeroResponse) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (HeroDTO) -> Unit) {
+    fun setOnItemClickListener(listener: (HeroResponse) -> Unit) {
         onItemClickListener = listener
     }
 

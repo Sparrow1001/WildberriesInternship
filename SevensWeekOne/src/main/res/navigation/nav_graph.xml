@@ -21,6 +21,6 @@
         tools:layout="@layout/fragment_hero_details" >
         <argument
             android:name="heroes"
-            app:argType="com.example.sevensweekone.HeroDTO" />
+            app:argType="com.example.sevensweekone.data.HeroDTO" />
     </fragment>
 </navigation>

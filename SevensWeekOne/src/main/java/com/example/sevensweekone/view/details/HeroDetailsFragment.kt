@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import coil.load
-import com.example.sevensweekone.HeroDTO
+import com.example.sevensweekone.data.HeroDTO
 import com.example.sevensweekone.databinding.FragmentHeroDetailsBinding
 
 class HeroDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentHeroDetailsBinding
-    val args : HeroDetailsFragmentArgs by navArgs()
+    private val args: HeroDetailsFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +36,7 @@ class HeroDetailsFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setData(hero: HeroDTO) {
-        with(binding){
+        with(binding) {
             nameTv.text = "Name: ${hero.localized_name}"
             primaryAttrTv.text = "Primary attribute: ${hero.primary_attr}"
             rolesTv.text = "Roles: ${hero.roles}"
@@ -54,8 +54,6 @@ class HeroDetailsFragment : Fragment() {
             baseHealthRegenTv.text = "Base Health Regen: ${hero.base_health_regen}"
             baseManaRegenTv.text = "Base Mana Regen: ${hero.base_mana_regen}"
         }
-
-
 
 
     }
