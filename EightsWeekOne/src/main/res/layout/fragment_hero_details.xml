@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_black"
+    tools:context=".view.details.HeroDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/contentStartGl"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <ImageView
+            android:id="@+id/heroIv"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/imageBarrier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+
+            app:constraint_referenced_ids="heroIv" />
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Name: Name Lastname"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/imageBarrier" />
+
+        <TextView
+            android:id="@+id/primaryAttrTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="primary attribute: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/nameTv" />
+
+        <TextView
+            android:id="@+id/rolesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="roles: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/primaryAttrTv" />
+
+        <TextView
+            android:id="@+id/attackStatsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Attack stats:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/rolesTv" />
+
+        <TextView
+            android:id="@+id/attackRangeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="attack range: 1243"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/attackStatsTitle" />
+
+        <TextView
+            android:id="@+id/attackTypeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="attack type: fff"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/attackRangeTv" />
+
+        <TextView
+            android:id="@+id/baseAttackMaxTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_attack_max: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/attackTypeTv" />
+
+        <TextView
+            android:id="@+id/baseAttackMinTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_attack_min: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseAttackMaxTv" />
+
+        <TextView
+            android:id="@+id/baseStatsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Base stats:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseAttackMinTv" />
+
+        <TextView
+            android:id="@+id/baseAgiTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base agi: 181"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseStatsTitle" />
+
+        <TextView
+            android:id="@+id/baseArmorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base armor: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseAgiTv" />
+
+
+        <TextView
+            android:id="@+id/baseHealthTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_health: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseArmorTv" />
+
+        <TextView
+            android:id="@+id/baseIntTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_int: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseHealthTv" />
+
+        <TextView
+            android:id="@+id/baseManaTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_mana: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseIntTv" />
+
+        <TextView
+            android:id="@+id/baseStrTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_str: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseManaTv" />
+
+        <TextView
+            android:id="@+id/moveSpeedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="move_speed: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseStrTv" />
+
+
+        <TextView
+            android:id="@+id/baseRegenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Base regen:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/moveSpeedTv" />
+
+        <TextView
+            android:id="@+id/baseHealthRegenTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_health_regen: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseRegenTitle" />
+
+        <TextView
+            android:id="@+id/baseManaRegenTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="base_mana_regen: 88"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/contentStartGl"
+            app:layout_constraintTop_toBottomOf="@id/baseHealthRegenTv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
