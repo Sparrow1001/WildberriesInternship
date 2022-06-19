@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WildberriesInternship">
         <activity
-            android:name=".threads.ThreadActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
