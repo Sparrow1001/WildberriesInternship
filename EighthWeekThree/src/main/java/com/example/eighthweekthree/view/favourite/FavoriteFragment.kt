@@ -36,10 +36,6 @@ class FavoriteFragment : Fragment() {
         viewModel = (activity as MainActivity).favoriteViewModel
         setupRecyclerView()
 
-        binding.goBackBt.setOnClickListener {
-            findNavController().navigate(R.id.action_favoriteFragment_to_voteFragment)
-        }
-
         refreshScreen()
 
         viewModel.favouriteCats.observe(viewLifecycleOwner, Observer { response ->

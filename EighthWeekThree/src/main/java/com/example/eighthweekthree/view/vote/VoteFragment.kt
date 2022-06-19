@@ -49,10 +49,6 @@ class VoteFragment : Fragment() {
             viewModel.getCatImages()
         }
 
-        binding.goToFavouritesBt.setOnClickListener {
-            findNavController().navigate(R.id.action_voteFragment_to_favoriteFragment)
-        }
-
         viewModel.catImage.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {

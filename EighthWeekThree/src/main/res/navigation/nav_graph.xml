@@ -23,4 +23,9 @@
             android:id="@+id/action_favoriteFragment_to_voteFragment"
             app:destination="@id/voteFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.eighthweekthree.view.about.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
 </navigation>
