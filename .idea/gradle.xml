@@ -11,7 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AdditionalTask" />
-            <option value="$PROJECT_DIR$/EightsWeekOne" />
+            <option value="$PROJECT_DIR$/EighthWeekOne" />
+            <option value="$PROJECT_DIR$/EighthWeekThree" />
             <option value="$PROJECT_DIR$/FifthWeekOne" />
             <option value="$PROJECT_DIR$/FifthWeekThree" />
             <option value="$PROJECT_DIR$/FifthWeekTwo" />
@@ -19,12 +20,12 @@
             <option value="$PROJECT_DIR$/FourthWeek" />
             <option value="$PROJECT_DIR$/SecondWeekActivity" />
             <option value="$PROJECT_DIR$/SecondWeekFragment" />
-            <option value="$PROJECT_DIR$/SevensWeekOne" />
-            <option value="$PROJECT_DIR$/SevensWeekThree" />
-            <option value="$PROJECT_DIR$/SevensWeekTwo" />
-            <option value="$PROJECT_DIR$/SixWeek" />
-            <option value="$PROJECT_DIR$/SixsWeekCoroutines" />
-            <option value="$PROJECT_DIR$/SixsWeekFlow" />
+            <option value="$PROJECT_DIR$/SeventhWeekOne" />
+            <option value="$PROJECT_DIR$/SeventhWeekThree" />
+            <option value="$PROJECT_DIR$/SeventhWeekTwo" />
+            <option value="$PROJECT_DIR$/SixthWeek" />
+            <option value="$PROJECT_DIR$/SixthWeekCoroutines" />
+            <option value="$PROJECT_DIR$/SixthWeekFlow" />
             <option value="$PROJECT_DIR$/ThirdWeek" />
           </set>
         </option>
