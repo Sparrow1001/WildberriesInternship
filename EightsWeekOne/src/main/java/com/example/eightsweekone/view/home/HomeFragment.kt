@@ -15,6 +15,7 @@ import com.example.eightsweekone.data.HeroDTO
 import com.example.eightsweekone.databinding.FragmentHomeBinding
 import com.example.eightsweekone.utils.Resource
 import com.example.eightsweekone.view.MainActivity
+import com.example.eightsweekone.view.about.AboutAppFragment
 import com.example.eightsweekone.view.details.HeroDetailsFragment
 
 
@@ -61,6 +62,13 @@ class HomeFragment : Fragment() {
             }
 
         })
+
+        binding.mainToolBar.setNavigationOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.listNavHostFragment, AboutAppFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
         homeAdapter.setOnItemClickListener {
             openDetailsFragment(it)
