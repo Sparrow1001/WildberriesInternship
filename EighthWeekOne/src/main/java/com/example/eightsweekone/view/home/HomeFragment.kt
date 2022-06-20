@@ -90,7 +90,7 @@ class HomeFragment : Fragment() {
         binding.progressBar.visibility = View.INVISIBLE
     }
 
-    private fun openDetailsFragment(hero: HeroDTO){
+    private fun openDetailsFragment(hero: HeroDTO) {
         val bundle = Bundle().apply {
             putSerializable("heroes", hero)
         }

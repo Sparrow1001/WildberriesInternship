@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.fifthweektwo.view.HomeFragment"
+        android:name="com.example.fifthweektwo.view.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.fifthweektwo.view.DetailsFragment"
+        android:name="com.example.fifthweektwo.view.details.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
         <argument
             android:name="heroes"
-            app:argType="com.example.fifthweektwo.model.HeroResponse" />
+            app:argType="com.example.fifthweektwo.data.HeroResponse" />
     </fragment>
 </navigation>

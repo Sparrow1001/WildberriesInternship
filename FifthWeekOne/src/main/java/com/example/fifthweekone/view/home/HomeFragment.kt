@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fifthweekone.MainActivity
+import com.example.fifthweekone.view.MainActivity
 import com.example.fifthweekone.R
 import com.example.fifthweekone.databinding.FragmentHomeBinding
 
@@ -23,7 +22,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = (activity as MainActivity).viewModel
 
@@ -49,11 +48,11 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         homeAdapter = HomeAdapter()
 
-
-        binding.dotaHeroesRv.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+        binding.dotaHeroesRv.layoutManager =
+            GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
         binding.dotaHeroesRv.adapter = homeAdapter
     }
 

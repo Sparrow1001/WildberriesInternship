@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.fifthweekone.HeroDTO
+import com.example.fifthweekone.data.HeroDTO
 import com.example.fifthweekone.databinding.ItemHeroBinding
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
-    inner class HeroViewHolder(val binding: ItemHeroBinding): RecyclerView.ViewHolder(binding.root)
+    inner class HeroViewHolder(val binding: ItemHeroBinding) : RecyclerView.ViewHolder(binding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<HeroDTO>(){
+    private val differCallback = object : DiffUtil.ItemCallback<HeroDTO>() {
         override fun areItemsTheSame(
             oldItem: HeroDTO,
             newItem: HeroDTO
@@ -40,7 +40,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         val hero = differ.currentList[position]
-        with(holder.binding){
+        with(holder.binding) {
             heroNameTextView.text = hero.localized_name
             heroImageView.load("https://api.opendota.com${hero.icon}")
 
@@ -56,7 +56,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HeroViewHolder>() {
 
     private var onItemClickListener: ((HeroDTO) -> Unit)? = null
 
-    fun setOnItemClickListener(listener:(HeroDTO) -> Unit){
+    fun setOnItemClickListener(listener: (HeroDTO) -> Unit) {
         onItemClickListener = listener
     }
 

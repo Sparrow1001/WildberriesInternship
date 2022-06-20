@@ -35,16 +35,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun touchListener(){
-        binding.contentProviderBt.setOnClickListener{
+    private fun touchListener() {
+        binding.contentProviderBt.setOnClickListener {
             startActivity(Intent(applicationContext, ProviderExampleActivity::class.java))
         }
 
-        binding.broadcastBt.setOnClickListener{
+        binding.broadcastBt.setOnClickListener {
             startActivity(Intent(applicationContext, BroadcastExampleActivity::class.java))
         }
 
-        binding.serviceBt.setOnClickListener{
+        binding.serviceBt.setOnClickListener {
             startActivity(Intent(applicationContext, ServiceExampleActivity::class.java))
         }
     }
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val income = intent.data
-        if (income != null){
+        if (income != null) {
             val intent1 = Intent(this, BroadcastExampleActivity::class.java)
             intent.data = null
             startActivity(intent1)

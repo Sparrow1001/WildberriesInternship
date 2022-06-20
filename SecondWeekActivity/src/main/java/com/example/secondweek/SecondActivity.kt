@@ -35,18 +35,20 @@ class SecondActivity : AppCompatActivity() {
         builder.setTitle("Change background color")
         builder.setMessage("Do you want change background color?")
 
-        builder.setPositiveButton("yes"){dialog, which ->
+        builder.setPositiveButton("yes") { dialog, which ->
 
             val rnd = Random()
-            val color = Color.argb(255,
+            val color = Color.argb(
+                255,
                 rnd.nextInt(256),
                 rnd.nextInt(256),
-                rnd.nextInt(256))
+                rnd.nextInt(256)
+            )
 
             layout.setBackgroundColor(color)
         }
 
-        builder.setNegativeButton("no"){dialog, which ->
+        builder.setNegativeButton("no") { dialog, which ->
             Toast.makeText(this, "Okay :(", Toast.LENGTH_SHORT).show()
         }
 

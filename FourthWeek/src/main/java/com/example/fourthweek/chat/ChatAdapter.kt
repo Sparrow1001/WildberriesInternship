@@ -9,12 +9,6 @@ import com.example.fourthweek.models.ChatDetailsData
 
 class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    companion object {
-        private const val TYPE_FROM = 1
-        private const val TYPE_TO = 2
-        private const val TYPE_HEADER = 3
-    }
-
     private val chatRepository = ChatRepository()
 
     var chatDetails: List<ChatDetailsData> = emptyList()
@@ -26,11 +20,11 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
         val item = chatDetails[position]
-        return if (position == chatDetails.size - 1){
+        return if (position == chatDetails.size - 1) {
             TYPE_HEADER
         } else if (item.sendType == 1) {
             TYPE_FROM
-        } else{
+        } else {
             TYPE_TO
         }
     }
@@ -38,20 +32,24 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
-        return if (viewType == TYPE_TO) {
-            val binding = ItemChatRightBinding.inflate(inflater, parent, false)
-            ToViewHolder(binding)
-        } else if (viewType == TYPE_FROM) {
-            val binding = ItemChatLeftBinding.inflate(inflater, parent, false)
-            FromViewHolder(binding)
-        } else {
-            val binding = LayoutHeaderBinding.inflate(inflater, parent, false)
-            HeaderViewHolder(binding)
+        return when (viewType) {
+            TYPE_TO -> {
+                val binding = ItemChatRightBinding.inflate(inflater, parent, false)
+                ToViewHolder(binding)
+            }
+            TYPE_FROM -> {
+                val binding = ItemChatLeftBinding.inflate(inflater, parent, false)
+                FromViewHolder(binding)
+            }
+            else -> {
+                val binding = LayoutHeaderBinding.inflate(inflater, parent, false)
+                HeaderViewHolder(binding)
+            }
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (getItemViewType(position) == TYPE_TO){
+        if (getItemViewType(position) == TYPE_TO) {
             val toViewHolder: ToViewHolder = holder as ToViewHolder
             val chat = chatDetails[position]
             with(toViewHolder.binding) {
@@ -60,7 +58,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 timeTv.text = chat.dateTime
             }
 
-        }else if (getItemViewType(position) == TYPE_FROM){
+        } else if (getItemViewType(position) == TYPE_FROM) {
             val fromViewHolder: FromViewHolder = holder as FromViewHolder
             val chat = chatDetails[position]
             with(fromViewHolder.binding) {
@@ -92,4 +90,10 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class HeaderViewHolder(
         val binding: LayoutHeaderBinding
     ) : RecyclerView.ViewHolder(binding.root)
+
+    companion object {
+        private const val TYPE_FROM = 1
+        private const val TYPE_TO = 2
+        private const val TYPE_HEADER = 3
+    }
 }

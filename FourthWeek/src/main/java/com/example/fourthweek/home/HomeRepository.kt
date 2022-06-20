@@ -10,11 +10,11 @@ class HomeRepository {
         val newList = mutableListOf<ChatData>()
         newList.addAll(list)
 
-            return fillList(newList)
+        return fillList(newList)
 
     }
 
-    fun updateChats(list: List<ChatData>): MutableList<ChatData>{
+    fun updateChats(list: List<ChatData>): MutableList<ChatData> {
         val newList = mutableListOf<ChatData>()
         newList.addAll(list)
         if (newList.isNotEmpty()) {

@@ -9,6 +9,6 @@ interface CatsDao {
     suspend fun upsert(cats: CatsEntity)
 
     @Query("SELECT * FROM cats")
-    fun  getAllCats(): List<CatsEntity>
+    fun getAllCats(): List<CatsEntity>
 
 }

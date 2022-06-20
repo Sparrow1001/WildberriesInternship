@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fourthweek.*
 import com.example.fourthweek.databinding.FragmentHomeBinding
@@ -22,21 +23,22 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.listNavHostFragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        val lrLayoutManager = LinearLayoutManager(context)
-        homeRepository = HomeRepository()
-        binding.recyclerViewChatList.apply {
-            layoutManager = lrLayoutManager
-            homeAdapter = HomeAdapter()
-            adapter = homeAdapter
-        }
+
+        setupRecyclerView()
 
         homeAdapter.chats = homeRepository.getChats(homeAdapter.chats)
 
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupListeners()
+    }
+
+    private fun setupListeners() {
         binding.swipeToRefreshLayout.setOnRefreshListener {
 
             val list = mutableListOf<ChatData>()
@@ -48,19 +50,23 @@ class HomeFragment : Fragment() {
         }
 
         homeAdapter.setOnItemClickListener {
-            navController.navigate(R.id.action_homeFragment_to_chatFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_chatFragment)
         }
 
         binding.secondFrameBt.setOnClickListener {
-            navController.navigate(R.id.action_homeFragment_to_homeWithoutRecycleFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_homeWithoutRecycleFragment)
         }
-
-        return binding.root
     }
 
-
-
-
+    private fun setupRecyclerView(){
+        val lrLayoutManager = LinearLayoutManager(context)
+        homeRepository = HomeRepository()
+        binding.recyclerViewChatList.apply {
+            layoutManager = lrLayoutManager
+            homeAdapter = HomeAdapter()
+            adapter = homeAdapter
+        }
+    }
 
 
 }

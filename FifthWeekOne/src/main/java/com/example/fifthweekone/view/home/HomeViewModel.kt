@@ -1,15 +1,13 @@
 package com.example.fifthweekone.view.home
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.fifthweekone.HeroDTO
-import com.example.fifthweekone.Repository
+import androidx.lifecycle.ViewModel
+import com.example.fifthweekone.data.HeroDTO
+import com.example.fifthweekone.data.Repository
 
 class HomeViewModel(
-    app: Application,
-    val repository: Repository
-) : AndroidViewModel(app) {
+    private val repository: Repository
+) : ViewModel() {
 
     var hero: MutableLiveData<List<HeroDTO>> = MutableLiveData()
 
@@ -18,6 +16,7 @@ class HomeViewModel(
     }
 
     private fun getHeroes() {
+
         val response = repository.getHeroFromApi()
 
         hero = response as MutableLiveData<List<HeroDTO>>

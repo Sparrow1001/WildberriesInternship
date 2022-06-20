@@ -75,18 +75,23 @@ class ProviderExampleActivity : AppCompatActivity() {
 
                 et.setText(SimpleDateFormat("yyyy:MM:dd HH:mm").format(calendar.time))
             }
-            TimePickerDialog(this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY),
-                calendar.get(Calendar.MINUTE), false).show()
+            TimePickerDialog(
+                this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE), false
+            ).show()
 
         }
-        DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR),
+        DatePickerDialog(
+            this, dateSetListener, calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)).show()
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
 
         return calendar
     }
+
     //Метод для вставки пользователя в базу с помощью Content Provider
-    private fun insertUser(){
+    private fun insertUser() {
         val values = ContentValues()
 
         if (binding.textName.text.toString() != "") {
@@ -106,20 +111,24 @@ class ProviderExampleActivity : AppCompatActivity() {
     }
 
     @SuppressLint("Range")
-    private fun showUsers(){
+    private fun showUsers() {
         // Создаём объект Cursor для ContentUri
         // Cursor - это интерфейс для реализации доступа к чтению из записи в бд
-        val cursor = contentResolver.query(Uri.parse("content://com.example.wildberriesinternship/users"),
-            null, null, null, null)
+        val cursor = contentResolver.query(
+            Uri.parse("content://com.example.wildberriesinternship/users"),
+            null, null, null, null
+        )
 
         //Выводим таблицу на экран
         if (cursor!!.moveToFirst()) {
             val strBuild = StringBuilder()
             while (!cursor.isAfterLast) {
-                strBuild.append("""
+                strBuild.append(
+                    """
       
     ${cursor.getString(cursor.getColumnIndex("id"))}-${cursor.getString(cursor.getColumnIndex("name"))}
-    """.trimIndent())
+    """.trimIndent()
+                )
                 cursor.moveToNext()
             }
             binding.res.text = strBuild
@@ -133,13 +142,17 @@ class ProviderExampleActivity : AppCompatActivity() {
 
         //Проверяем наличие доступа. Если он есть, производим запись, если нет, то запрашиваем.
 
-        val permission = ContextCompat.checkSelfPermission(this,
-            Manifest.permission.WRITE_CALENDAR)
+        val permission = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.WRITE_CALENDAR
+        )
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
+            ActivityCompat.requestPermissions(
+                this,
                 arrayOf(Manifest.permission.WRITE_CALENDAR),
-                101)
+                101
+            )
         } else {
 
             val eventValues = ContentValues()

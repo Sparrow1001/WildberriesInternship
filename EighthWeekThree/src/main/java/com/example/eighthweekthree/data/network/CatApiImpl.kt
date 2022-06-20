@@ -4,6 +4,8 @@ import com.example.eighthweekthree.data.models.CatImageModel
 import com.example.eighthweekthree.data.models.FavouriteCatImageModel
 import com.example.eighthweekthree.data.models.FavouriteCatModel
 import com.example.eighthweekthree.data.models.ResponseModel
+import com.example.eighthweekthree.utils.Constants.Companion.API_HEADER
+import com.example.eighthweekthree.utils.Constants.Companion.API_KEY
 import com.example.eighthweekthree.utils.Constants.Companion.IMAGES
 import com.example.eighthweekthree.utils.Constants.Companion.FAVOURITES
 import io.ktor.client.*
@@ -15,7 +17,7 @@ class CatApiImpl(private val client: HttpClient) : CatApi {
         return try {
             client.get {
                 url(IMAGES)
-                header("x-api-key", "fb6a7535-05e2-4e55-89bf-e662b09e6a74")
+                header(API_HEADER, API_KEY)
             }
         } catch (e: Exception) {
             println("Error: $e")
@@ -27,7 +29,7 @@ class CatApiImpl(private val client: HttpClient) : CatApi {
         return try {
             client.post<ResponseModel> {
                 url(FAVOURITES)
-                header("x-api-key", "fb6a7535-05e2-4e55-89bf-e662b09e6a74")
+                header(API_HEADER, API_KEY)
                 body = favourite
             }
         } catch (e: Exception) {
@@ -39,7 +41,7 @@ class CatApiImpl(private val client: HttpClient) : CatApi {
         return try {
             client.get {
                 url(FAVOURITES)
-                header("x-api-key", "fb6a7535-05e2-4e55-89bf-e662b09e6a74")
+                header(API_HEADER, API_KEY)
             }
         } catch (ex: Exception) {
             emptyList()

@@ -40,11 +40,11 @@ class HomeViewModel(
     }
 
     fun openDetailsFragment(hero: Bundle) {
-        router.navigateTo(FragmentScreen{DetailsFragment().apply { arguments = hero }})
+        router.navigateTo(FragmentScreen { DetailsFragment().apply { arguments = hero } })
     }
 
-    fun openAboutFragment(){
-        router.navigateTo(FragmentScreen{AboutAppFragment()})
+    fun openAboutFragment() {
+        router.navigateTo(FragmentScreen { AboutAppFragment() })
     }
 
 

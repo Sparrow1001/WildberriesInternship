@@ -25,7 +25,7 @@ class BottomThreadFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBottomThreadBinding.inflate(inflater, container, false)
         viewModel = (activity as MainActivity).viewModel
 

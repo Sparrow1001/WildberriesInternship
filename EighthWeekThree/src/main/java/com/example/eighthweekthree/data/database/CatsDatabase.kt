@@ -9,17 +9,17 @@ import androidx.room.RoomDatabase
     entities = [CatsEntity::class],
     version = 1
 )
-abstract class CatsDatabase: RoomDatabase() {
+abstract class CatsDatabase : RoomDatabase() {
 
     abstract fun getCatsDao(): CatsDao
 
-    companion object{
+    companion object {
         @Volatile
         private var instance: CatsDatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
-            instance ?: createDatabase(context).also { instance = it}
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+            instance ?: createDatabase(context).also { instance = it }
         }
 
         private fun createDatabase(context: Context) =

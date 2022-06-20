@@ -13,10 +13,10 @@ class MyContentProvider : ContentProvider() {
 
     companion object {
         // Константа авторизации, по которой другое приложение может получить доступ
-        const val PROVIDER_NAME = "com.example.wildberriesinternship"
+        private const val PROVIDER_NAME = "com.example.wildberriesinternship"
 
         // URI хранения данных
-        const val URL = "content://$PROVIDER_NAME/users"
+        private const val URL = "content://$PROVIDER_NAME/users"
 
         // парсинг URI
         val CONTENT_URI = Uri.parse(URL)
@@ -71,9 +71,7 @@ class MyContentProvider : ContentProvider() {
         val dbHelper =
             DatabaseHelper(context)
         db = dbHelper.writableDatabase
-        return if (db != null) {
-            true
-        } else false
+        return db != null
     }
 
     //Реализация поступающего запроса

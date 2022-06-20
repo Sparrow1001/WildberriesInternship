@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.fourthweek.R
 import com.example.fourthweek.databinding.FragmentHomeWithoutRecycleBinding
 import java.util.*
@@ -20,18 +21,14 @@ class HomeWithoutRecycleFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeWithoutRecycleBinding
     private var list = mutableListOf<View>()
-    private lateinit var navHostFragment: NavHostFragment
-    private lateinit var navController: NavController
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeWithoutRecycleBinding.inflate(inflater, container, false)
 
-        navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.listNavHostFragment) as NavHostFragment
-        navController = navHostFragment.navController
         list = fillList(list)
         setList(list)
 
@@ -48,10 +45,10 @@ class HomeWithoutRecycleFragment : Fragment() {
     private fun update(viewList: List<View>): MutableList<View> {
         val newList = mutableListOf<View>()
         newList.addAll(viewList)
-        for (i in (0..newList.size - 2)){
+        for (i in (0..newList.size - 2)) {
             val lastMessage: TextView = newList[i].findViewById(R.id.lastMessageTv)
             val unreadCounter: TextView = newList[i].findViewById(R.id.unreadCounterTv)
-            if (Random().nextBoolean()){
+            if (Random().nextBoolean()) {
                 lastMessage.text = getRandomString((1..10).random())
                 unreadCounter.text = (1..100).random().toString()
             }
@@ -82,7 +79,7 @@ class HomeWithoutRecycleFragment : Fragment() {
             val unreadCounter: TextView = childView.findViewById(R.id.unreadCounterTv)
 
             childView.setOnClickListener {
-                navController.navigate(R.id.action_homeWithoutRecycleFragment_to_chatFragment)
+                findNavController().navigate(R.id.action_homeWithoutRecycleFragment_to_chatFragment)
             }
 
             chatName.text = getRandomString((1..10).random())
@@ -111,7 +108,7 @@ class HomeWithoutRecycleFragment : Fragment() {
             .joinToString("")
     }
 
-    private fun nextPage(){
+    private fun nextPage() {
         list.removeAt(list.lastIndex)
         list = fillList(list)
         removeList()

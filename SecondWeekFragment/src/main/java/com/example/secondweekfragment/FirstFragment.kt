@@ -74,13 +74,13 @@ class FirstFragment : Fragment() {
         Toast.makeText(context, "Fragment Created", Toast.LENGTH_SHORT).show()
     }
 
-     override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-         Log.d("onCreateView", "Create view")
-         Toast.makeText(context, "Create view", Toast.LENGTH_SHORT).show()
+        Log.d("onCreateView", "Create view")
+        Toast.makeText(context, "Create view", Toast.LENGTH_SHORT).show()
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
 

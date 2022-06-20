@@ -12,11 +12,6 @@ class HomeAdapter(
 
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    companion object {
-        private const val TYPE_ITEMS = 1
-        private const val TYPE_FOOTER = 2
-    }
-
     private val homeRepository = HomeRepository()
 
     var chats: List<ChatData> = emptyList()
@@ -28,19 +23,17 @@ class HomeAdapter(
         }
 
     override fun getItemViewType(position: Int): Int {
-        if(position == chats.size) {
+        if (position == chats.size) {
             return TYPE_FOOTER
         }
         return TYPE_ITEMS
     }
 
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
-        return if (viewType == TYPE_FOOTER){
+        return if (viewType == TYPE_FOOTER) {
             val binding = LayoutFooterBinding.inflate(inflater, parent, false)
             FooterViewHolder(binding)
         } else {
@@ -51,12 +44,12 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (getItemViewType(position) == TYPE_FOOTER){
+        if (getItemViewType(position) == TYPE_FOOTER) {
             val footerVh: FooterViewHolder = holder as FooterViewHolder
             footerVh.binding.loadMoreBt.setOnClickListener {
                 chats = homeRepository.getChats(chats)
             }
-        }else{
+        } else {
             val homeVh: HomeViewHolder = holder as HomeViewHolder
             val chat = chats[position]
             homeVh.itemView.tag = chat
@@ -77,7 +70,7 @@ class HomeAdapter(
 
     private var onItemClickListener: ((ChatData) -> Unit)? = null
 
-    fun setOnItemClickListener(listener:(ChatData) -> Unit){
+    fun setOnItemClickListener(listener: (ChatData) -> Unit) {
         onItemClickListener = listener
     }
 
@@ -94,7 +87,10 @@ class HomeAdapter(
     ) : RecyclerView.ViewHolder(binding.root)
 
 
-
+    companion object {
+        private const val TYPE_ITEMS = 1
+        private const val TYPE_FOOTER = 2
+    }
 
 }
 

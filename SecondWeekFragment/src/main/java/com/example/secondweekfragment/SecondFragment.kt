@@ -33,7 +33,7 @@ class SecondFragment : Fragment() {
         }
     }
 
-    private fun showDialog(){
+    private fun showDialog() {
         val builder = AlertDialog.Builder(context)
         val inflater = layoutInflater
         builder.setTitle("Очень важный диалог")
@@ -45,11 +45,16 @@ class SecondFragment : Fragment() {
 
         builder.setView(dialogLayout)
 
-        builder.setPositiveButton("Готово"){dialog, which ->
-            if (check.isChecked){
-                Toast.makeText(context, "${nameEt.text}, кот хочет кушать", Toast.LENGTH_SHORT).show()
+        builder.setPositiveButton("Готово") { dialog, which ->
+            if (check.isChecked) {
+                Toast.makeText(context, "${nameEt.text}, кот хочет кушать", Toast.LENGTH_SHORT)
+                    .show()
             } else
-                Toast.makeText(context, "${nameEt.text}, тебе нужно завести кота)", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "${nameEt.text}, тебе нужно завести кота)",
+                    Toast.LENGTH_SHORT
+                ).show()
         }
 
 

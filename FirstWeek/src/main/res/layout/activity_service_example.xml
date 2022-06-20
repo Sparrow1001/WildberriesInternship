@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ServiceExampleActivity">
 
     <LinearLayout
@@ -19,21 +18,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
-            android:text="@string/StartMc_button"/>
+            android:text="@string/StartMc_button" />
 
         <Button
             android:id="@+id/stopMcBt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/StopMc_button"/>
+            android:text="@string/StopMc_button" />
 
     </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/mcPb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_marginTop="20dp"/>
 
 </LinearLayout>

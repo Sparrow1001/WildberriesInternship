@@ -71,7 +71,7 @@ class FavoriteFragment : Fragment() {
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
     }
 
-    private fun refreshScreen(){
+    private fun refreshScreen() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.getFavouriteCats()
             binding.swipeRefreshLayout.isRefreshing = false

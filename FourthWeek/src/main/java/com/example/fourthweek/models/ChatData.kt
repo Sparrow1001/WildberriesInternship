@@ -1,7 +1,5 @@
 package com.example.fourthweek.models
 
-import java.util.*
-
 data class ChatData(
     var id: Int,
     var chatName: String,
