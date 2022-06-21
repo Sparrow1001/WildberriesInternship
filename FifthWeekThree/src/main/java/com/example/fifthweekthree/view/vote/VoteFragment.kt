@@ -58,8 +58,7 @@ class VoteFragment : Fragment() {
                     }
                 }
                 else -> {
-                    Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG)
-                        .show()
+
                 }
             }
         })
