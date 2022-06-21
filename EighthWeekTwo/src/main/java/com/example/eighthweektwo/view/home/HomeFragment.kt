@@ -20,6 +20,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var homeAdapter: HomeAdapter
     private lateinit var viewModel: HomeViewModel
+    private var hasConnection: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +51,7 @@ class HomeFragment : Fragment() {
                     response.data?.let { heroResponse ->
                         homeAdapter.differ.submitList(heroResponse)
                     }
+                    hasConnection = true
                 }
                 is Resource.Error -> {
                     hideProgressBar()
@@ -62,6 +64,22 @@ class HomeFragment : Fragment() {
 
                 is Resource.Loading -> {
                     showProgressBar()
+                }
+
+                is Resource.NoInternet -> {
+                    hideProgressBar()
+                    response.data?.let { heroResponse ->
+                        homeAdapter.differ.submitList(heroResponse)
+                    }
+                    if (hasConnection){
+                        response.message?.let { message ->
+                            Log.e(TAG, "An error occured: $message")
+                            Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                                .show()
+                            hasConnection = false
+                        }
+                    }
+
                 }
             }
         })

@@ -75,7 +75,7 @@ class BottomThreadFragment : Fragment() {
 
             if (seconds != 0 && running && seconds % 20 == 0) {
 
-                val rnd = java.util.Random()
+                val rnd = Random()
                 val color = Color.argb(
                     255,
                     rnd.nextInt(256),

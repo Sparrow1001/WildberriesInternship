@@ -29,11 +29,18 @@ class HomeViewModel(
         superHeroes.postValue(Resource.Loading())
         try {
 
-            superHeroes.postValue(heroRepository.getHeroes())
+            superHeroes.postValue(Resource.Success(heroRepository.getHeroes()))
 
         } catch (t: Throwable) {
             when (t) {
-                is IOException -> superHeroes.postValue(Resource.Error("Network Failure"))
+                is IOException -> {
+                    superHeroes.postValue(
+                        Resource.NoInternet(
+                            "Network Failure",
+                            heroRepository.getLocalList()
+                        )
+                    )
+                }
                 else -> superHeroes.postValue(Resource.Error("Conversion Error: ${t.message}"))
             }
         }

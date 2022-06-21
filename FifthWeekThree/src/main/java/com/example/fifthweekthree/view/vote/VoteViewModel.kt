@@ -24,9 +24,13 @@ class VoteViewModel(private val catsRepository: CatsRepository) : ViewModel() {
 
     fun getCatImages() {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = catsRepository.getCatsImages()[0]
-            imageId = response.id
-            handleResult(response)
+            val response = catsRepository.getCatsImages()
+            if (response.isNotEmpty()) {
+                imageId = response[0].id
+                handleResult(response[0])
+            } else {
+                _catImage.postValue(Resource.Error("No Internet"))
+            }
         }
     }
 

@@ -16,7 +16,7 @@ class HeroRepository(
         Log.d("GGS2", localList.toString())
 
 
-        return if (localList == remoteList) {
+        return if (localList == remoteList || remoteList.isEmpty()) {
 
             localList
 

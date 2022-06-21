@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
+class VoteViewModel(private val catsRepository: CatsRepository) : ViewModel() {
 
     private val _catImage: MutableLiveData<Resource<CatImageModel>> = MutableLiveData()
     val catImage: LiveData<Resource<CatImageModel>> = _catImage
@@ -25,9 +25,14 @@ class VoteViewModel(val catsRepository: CatsRepository) : ViewModel() {
 
     fun getCatImages() {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = catsRepository.getCatsImagesFromApi()[0]
-            imageId = response.id
-            handleResult(response)
+            val response = catsRepository.getCatsImagesFromApi()
+            if (response.isNotEmpty()){
+                imageId = response[0].id
+                handleResult(response[0])
+            } else {
+                _catImage.postValue(Resource.Error("No internet"))
+            }
+
         }
     }
 

@@ -68,7 +68,7 @@ class BottomFragment : Fragment() {
             minutes = counter / 60
             hours = minutes / 60
 
-            var time = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+            val time = String.format("%02d:%02d:%02d", hours, minutes, seconds)
 
             binding.timeTv.text = time
 

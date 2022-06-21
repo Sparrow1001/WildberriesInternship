@@ -46,6 +46,11 @@ class HomeFragment : Fragment() {
                 bundle
             )
         }
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getHeroes()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun setupRecyclerView() {

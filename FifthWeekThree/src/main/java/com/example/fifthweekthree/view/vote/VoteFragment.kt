@@ -15,6 +15,7 @@ import com.example.fifthweekthree.R
 import com.example.fifthweekthree.databinding.FragmentVoteBinding
 import com.example.fifthweekthree.data.network.CatApi
 import com.example.fifthweekthree.utils.Resource
+import com.example.fifthweekthree.view.MainActivity
 import com.facebook.drawee.backends.pipeline.Fresco
 
 
@@ -26,7 +27,6 @@ class VoteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Fresco.initialize(context)
-        viewModel = VoteViewModel(CatsRepository(CatApi.create()))
     }
 
     override fun onCreateView(
@@ -34,7 +34,7 @@ class VoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentVoteBinding.inflate(inflater, container, false)
-
+        viewModel = (activity as MainActivity).voteViewModel
         return binding.root
     }
 
@@ -58,7 +58,8 @@ class VoteFragment : Fragment() {
                     }
                 }
                 else -> {
-
+                    Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG)
+                        .show()
                 }
             }
         })
